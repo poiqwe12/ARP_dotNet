@@ -13,23 +13,26 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManagementApp.Model;
 
-namespace ManagementApp.Vievs
+namespace ManagementApp.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy MenuView.xaml
     /// </summary>
+    /// 
+
     public partial class MenuView : Page
     {
+        List<TaskCollection> taskCollectionsList = new List<TaskCollection>();
+        TaskCollection taskCollection = new TaskCollection();
+        Task task = new Task();
+        Model.Point point = new Model.Point();
+        Task task1 = new Task();
+        Model.Point point1 = new Model.Point();
+
+
         public MenuView()
         {
             InitializeComponent();
-
-            List<TaskCollection> taskCollectionsList = new List<TaskCollection>();
-            TaskCollection taskCollection = new TaskCollection();
-            Task task = new Task();
-            Model.Point point = new Model.Point();
-            Task task1 = new Task();
-            Model.Point point1 = new Model.Point();
   
             task.Points.Add(point);
             taskCollection.Tasks.Add(task);
@@ -38,7 +41,24 @@ namespace ManagementApp.Vievs
             taskCollectionsList.Add(taskCollection);
             taskCollectionsList.Add(taskCollection);
 
-            TreeViev_Menu1.ItemsSource = taskCollectionsList;
+            TreeViev_Menu.ItemsSource = taskCollectionsList;
+
+
         }
+
+
+        private void TreeViev_Menu_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if(TreeViev_Menu.SelectedItem.GetType().ToString() == "ManagementApp.Model.TaskCollection")
+            {
+                tekst.Text = TreeViev_Menu.SelectedItem.ToString();
+
+            }
+            else if (TreeViev_Menu.SelectedItem.ToString() == "ManagementApp.Model.Task")
+            {
+                tekst.Text = TreeViev_Menu.SelectedItem.GetType().ToString();
+            }
+        }
+
     }
 }

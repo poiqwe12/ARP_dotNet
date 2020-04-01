@@ -14,9 +14,13 @@ namespace ManagementApp.Model
         public bool TaskForToday { get; set; }
 
 
+
         public Point()
         {
             Name = "Jakiś tam pinkt";
+            DeadlineDate = "11.11.11r.";
+            CompletionDate = "11.11.11r.";
+            ExecutionStatus = true;
         }
     }
 }

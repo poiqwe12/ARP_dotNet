@@ -1,9 +1,9 @@
-﻿<Page x:Class="ManagementApp.Vievs.MenuView"
+﻿<Page x:Class="ManagementApp.Views.MenuView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:ManagementApp.Vievs"
+      xmlns:local="clr-namespace:ManagementApp.Views"
       xmlns:self="clr-namespace:ManagementApp.Model"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="200"
@@ -31,14 +31,15 @@
                           VerticalScrollBarVisibility="Auto"      
                           Background="#404040">
 
-                <TreeView Name="TreeViev_Menu1"
+                <TreeView Name="TreeViev_Menu"
                           Background="#404040"
-                          ItemContainerStyle="{StaticResource TreeItemStyle}">
+                          ItemContainerStyle="{StaticResource TreeItemStyle}"
+                          SelectedItemChanged="TreeViev_Menu_SelectedItemChanged">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type self:TaskCollection}" ItemsSource="{Binding Tasks}">
                             <StackPanel Orientation="Horizontal">
-                                <Image Source="/Image/SmalSignature/folder.png"
-                                Width="18" Height="18"/>
+                                <Image Source="/Image/SmalSignature/folder.png" 
+                                       Width="16" Height="16"/>
                                 <TextBlock Text="{Binding Name}"
                                            Margin="1,1,1,1"/>
                             </StackPanel>
@@ -56,6 +57,10 @@
 
             </ScrollViewer>
 
+            <TextBlock x:Name="tekst"
+                        Text="JAkiesda;asd"
+                       FontSize="12"></TextBlock>
+            
         </DockPanel>
 
     </Grid>
