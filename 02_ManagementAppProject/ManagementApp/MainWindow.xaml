@@ -7,48 +7,113 @@
         mc:Ignorable="d"
         Title="MainWindow"
 
-             Height="600" 
+        Height="600" 
         Width="900"
         WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <!--Styl dla przycisków do wybierania funkcjonalności-->
+        <Style x:Key="ChangeFunctionsButton" TargetType="Button">
+            <Setter Property="Background" Value="#262626"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" Background="{TemplateBinding Background}" BorderThickness="0.5" BorderBrush="Gray" >
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Button.IsPressed" Value="True">
+                                <Setter Property="Background" Value="#595959" />
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#404040"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+    
+    
 
     <DockPanel>
         <!--Wybór funkcjonalności:-->
         <StackPanel Orientation="Horizontal"  
                     DockPanel.Dock="Top"
                     Background="#262626">
-            <!--Management Functions:-->
-            <Button Height="50" Width="50"
-                    Style="{StaticResource ChangeFunctionsButton}">
+            <!--Management Functions:-->       
+            <Button x:Name="ManagementViewButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="ManagementViewButton_Click">
                 <Image Source="/Image/managementLogo.png"
                        Height="30" Width="30"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             </Button>
             <!--Kalendarz:-->
-            <Button Height="50" Width="50"
-                    Style="{StaticResource ChangeFunctionsButton}">
+            <Button x:Name="CalendarViewButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="CalendarViewButton_Click">
                 <Image Source="/Image/calendarLogo.png"
                        Height="30" Width="30"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             </Button>
             <!--Statystyki:-->
-            <Button Height="50" Width="50"
-                    Style="{StaticResource ChangeFunctionsButton}">
+            <Button x:Name="StatisticsViewButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="StatisticsViewButton_Click">
                 <Image Source="/Image/statisticsLogo.png"
                        Height="30" Width="30"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             </Button>
             <!--Options:-->
-            <Button Height="50" Width="50"
-                    Style="{StaticResource ChangeFunctionsButton}">
+            <Button x:Name="OptionViewButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="OptionViewButton_Click">
                 <Image Source="/Image/koloZembate.png"
-
                        Height="30" Width="30"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"/>
             </Button>
+            <!--To jest tylko przycisk do testów!!!!!!!!!!!:-->
+            <Button x:Name="AddPointButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="AddPointButton_Click">
+                <Image Source="/Image/SmalSignature/approval.png"
+                       Height="30" Width="30"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            </Button>
+            <!--To jest tylko przycisk do testów!!!!!!!!!!!:-->
+            <Button x:Name="AddTaskButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="AddTaskButton_Click">
+                <Image Source="/Image/SmalSignature/approval.png"
+                       Height="30" Width="30"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            </Button>
+            <!--To jest tylko przycisk do testów!!!!!!!!!!!:-->
+            <Button x:Name="AddCollectionButton"
+                    Height="50" Width="50"
+                    Style="{StaticResource ChangeFunctionsButton}" 
+                    Click="AddCollectionButton_Click">
+                <Image Source="/Image/SmalSignature/folder.png"
+                       Height="30" Width="30"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            </Button>
+
         </StackPanel>
         <!--Dolny pasek informacyjny:-->
         <StatusBar  DockPanel.Dock="Bottom"
@@ -57,27 +122,10 @@
                     BorderThickness="1">
         </StatusBar>
         <!--Pole środkowe dotyczące wybranej funkcjonalności podzielone na 3 obszary:-->
-        <DockPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MinWidth="20" MaxWidth="300" Width="auto"/>
-                    <ColumnDefinition Width="2"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2"/>
-                    <ColumnDefinition MinWidth="20" MaxWidth="300" Width="auto"/>
-                </Grid.ColumnDefinitions>
-                <!--Menu:-->
-                <Frame Grid.Column="0" Source="Views\MenuView.xaml"></Frame>
-                <!--Spliter:-->
-                <GridSplitter ShowsPreview="true" Grid.Column="1" Width="2" HorizontalAlignment="Stretch" Background="Black"/>
-                <!--Główny ekran-->
-                <Frame Grid.Column="2" Source="Views\TaskListView.xaml" ></Frame>
-                <!--Spliter:-->
-                <GridSplitter ShowsPreview="true" Grid.Column="3" Width="2" HorizontalAlignment="Stretch" Background="Black"/>
-                <!--Do zrobienia dzisiaj:-->
-                <Canvas Grid.Column="4" MinWidth="200" Background="#404040" HorizontalAlignment="Stretch"></Canvas>
-            </Grid>
-        </DockPanel>
+        <Frame x:Name="MiddleFieldView"
+                NavigationUIVisibility="Hidden">
+        </Frame>
+
     </DockPanel>
 
 

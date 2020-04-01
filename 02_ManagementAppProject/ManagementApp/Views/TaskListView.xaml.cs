@@ -12,7 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManagementApp.Model;
 
-namespace ManagementApp
+namespace ManagementApp.Views
 {
     /// <summary>
     /// Logika interakcji dla klasy TaskListView.xaml
@@ -24,6 +24,7 @@ namespace ManagementApp
         {
 
             InitializeComponent();
+
             taskList.Add(new Task());
             taskList.Add(new Task());
             taskList.Add(new Task());
@@ -49,7 +50,7 @@ namespace ManagementApp
             taskList.Add(new Task());
             taskList.Add(new Task());
 
-            ListView_TaskList.ItemsSource = taskList;
+            ListView_TasksList.ItemsSource = taskList;
 
 
         }

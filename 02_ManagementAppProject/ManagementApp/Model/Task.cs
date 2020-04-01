@@ -11,8 +11,10 @@ namespace ManagementApp.Model
         public string CompletionDate { get; set; }
         public string Descriptions { get; set; }
         public int PercentageCompletion { get; set; }
+        bool IsChosenInMenu { get; set; }
 
         public List<Point> Points { get; set; }
+
 
 
 
@@ -24,6 +26,7 @@ namespace ManagementApp.Model
             DeadlineDate = "11.11.11r.";
             CompletionDate = "11.11.11r.";
             PercentageCompletion = 50;
+            IsChosenInMenu = false;
         }
 
     }
