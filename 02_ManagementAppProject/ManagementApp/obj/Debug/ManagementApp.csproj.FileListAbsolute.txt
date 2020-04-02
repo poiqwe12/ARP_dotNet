@@ -76,3 +76,22 @@ C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debu
 C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\TaskCollectionAddWindow.g.cs
 C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\TaskAddWindow.baml
 C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\TaskCollectionAddWindow.baml
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp.csprojAssemblyReference.cache
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\MainWindow.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\CalendarView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\ManagementView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\MenuView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\OptionView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\PointListView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\StatisticsView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\TaskAddWindow.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\TaskCollectionAddWindow.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\TaskListView.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\Views\PointAddWindow.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\App.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp_Content.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp_MarkupCompile.cache
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp_MarkupCompile.lref
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp.exe
+C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp.pdb

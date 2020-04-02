@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("image/smalsignature/book.svg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database1.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database1_log.ldf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/enittydb.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("database/enittydb.tt")]
 
 

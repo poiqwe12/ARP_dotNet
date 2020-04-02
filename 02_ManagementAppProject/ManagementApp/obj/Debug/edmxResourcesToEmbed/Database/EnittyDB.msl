@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="Collections">
+      <EntityTypeMapping TypeName="Database1Model.Collections">
+        <MappingFragment StoreEntitySet="Collections">
+          <ScalarProperty Name="Colletions_Id" ColumnName="Colletions_Id" />
+          <ScalarProperty Name="ColletionName" ColumnName="ColletionName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Points">
+      <EntityTypeMapping TypeName="Database1Model.Points">
+        <MappingFragment StoreEntitySet="Points">
+          <ScalarProperty Name="Point_Id" ColumnName="Point_Id" />
+          <ScalarProperty Name="Task_id" ColumnName="Task_id" />
+          <ScalarProperty Name="PointName" ColumnName="PointName" />
+          <ScalarProperty Name="DeadLineDate" ColumnName="DeadLineDate" />
+          <ScalarProperty Name="CompletionDate" ColumnName="CompletionDate" />
+          <ScalarProperty Name="ExecutionStatus" ColumnName="ExecutionStatus" />
+          <ScalarProperty Name="TaskForToday" ColumnName="TaskForToday" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tasks">
+      <EntityTypeMapping TypeName="Database1Model.Tasks">
+        <MappingFragment StoreEntitySet="Tasks">
+          <ScalarProperty Name="Tasks_Id" ColumnName="Tasks_Id" />
+          <ScalarProperty Name="Collection_ID" ColumnName="Collection_ID" />
+          <ScalarProperty Name="TaskName" ColumnName="TaskName" />
+          <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+          <ScalarProperty Name="Completion" ColumnName="Completion" />
+          <ScalarProperty Name="Percenttarget" ColumnName="Percenttarget" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
