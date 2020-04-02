@@ -6,24 +6,33 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ManagementApp.Controler
-{
+{ 
+	public struct ArgsPoint
+	{
+		public int idT;
+		public string name;
+		public int deadlineDay, deadlineMonth, deadlineYear;
+		public int completeDay, completeMonth, completeYear;
+		public bool status;
+		public bool task4today;
+		public string description;
+	}
+
 	static public class AppControler
 	{
-		public static void AddCollection(string name, string description)
+		public static void AddCollection(Collections newCollection)
 		{
 			using (var context = new DBEntities())
 			{
-				var b = new Collections { ColletionName = name, Description = description };
-				context.Collections.Add(b);
+				context.Collections.Add(newCollection);
 				context.SaveChanges();
 			}
 		}
-		public static void AddPoint(int id, string name, Nullable<System.DateTime> deadline, Nullable<System.DateTime> copletedata, bool status, bool taskfortod, string description)
+		public static void AddPoint(Points newPoints)
 		{
 			using (var context = new  DBEntities())
 			{
-				var b = new Points { Task_id = id, PointName = name, DeadLineDate = copletedata, CompletionDate = copletedata, ExecutionStatus = status, TaskForToday = taskfortod, Description = description };
-				context.Points.Add(b);
+				context.Points.Add(newPoints);
 				context.SaveChanges();
 			}
 		}
