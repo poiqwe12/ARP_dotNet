@@ -60,5 +60,19 @@ namespace ManagementApp.Views
             }
         }
 
+        private void AddCollectionButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddTaskButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void AddPointButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

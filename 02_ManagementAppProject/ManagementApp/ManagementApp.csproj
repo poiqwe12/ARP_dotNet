@@ -237,6 +237,7 @@
     <Resource Include="Image\SmalSignature\approval.png" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="Database1.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -269,6 +270,15 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+=======
+    <Resource Include="Image\SmalSignature\addfolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SmalSignature\addtask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SmalSignature\addpoint.png" />
+>>>>>>> wpfModyfication
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

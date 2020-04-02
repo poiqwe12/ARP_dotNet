@@ -18,14 +18,58 @@
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
 
+        <!--Styl dla przycisków na pasku-->
+        <Style x:Key="MyMouseOverColor" TargetType="Button">
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#262626"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
     </Page.Resources>
     
     <Grid>
         <DockPanel Background="#404040" >
             <!--Pasek z narzędziami-->
-            <ToolBarPanel  DockPanel.Dock="Top" Height="20">
-            </ToolBarPanel>
+            <StackPanel  DockPanel.Dock="Top" Orientation="Horizontal" >
+                <!--Dodawanie kolekcji-->
+                <Button x:Name="AddCollectionButton"
+                        Width="20" Height="20"
+                        Margin="2"
+                        Style="{StaticResource MyMouseOverColor}" 
+                        Click="AddCollectionButton_Click">
+                    <Image Source="/Image/SmalSignature/addfolder.png"/>
+                </Button>
+                <!--Dodawanie zadań-->
+                <Button x:Name="AddTaskButton"
+                        Width="20" Height="20"
+                        Margin="2"                       
+                        Style="{StaticResource MyMouseOverColor}"
+                        Click="AddTaskButton_Click">
+                    <Image Source="/Image/SmalSignature/addtask.png"/>
+                </Button>
+                <!--Dodawanie punktów-->
+                <Button x:Name="AddPointButton"
+                        Width="20" Height="20"
+                        Margin="2"
+                        Style="{StaticResource MyMouseOverColor}"
+                        Click="AddPointButton_Click">
+                    <Image Source="/Image/SmalSignature/addpoint.png"/>
+                </Button>
+            </StackPanel>
             <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black"></Rectangle>
+            
             <!--Pole z drzewkiem zadań-->
             <ScrollViewer HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" 
                           VerticalScrollBarVisibility="Auto"      
@@ -33,6 +77,7 @@
 
                 <TreeView Name="TreeViev_Menu"
                           Background="#404040"
+                          BorderThickness="0"
                           ItemContainerStyle="{StaticResource TreeItemStyle}"
                           SelectedItemChanged="TreeViev_Menu_SelectedItemChanged">
                     <TreeView.Resources>
