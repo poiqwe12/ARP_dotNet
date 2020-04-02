@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\
 ManagementApp
 none
 false
 DEBUG;TRACE
-C:\Users\Łukasz Głowacki\Desktop\cszarp last\ARP_dotNet\02_ManagementAppProject\ManagementApp\App.xaml
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\App.xaml
 111070758335
-42107604354
-25-2075832671
-18-1836807370
+
+19-418060664
+13-1505183044
 MainWindow.xaml;Views\CalendarView.xaml;Views\ManagementView.xaml;Views\MenuView.xaml;Views\OptionView.xaml;Views\PointListView.xaml;Views\StatisticsView.xaml;Views\TaskAddWindow.xaml;Views\TaskCollectionAddWindow.xaml;Views\TaskListView.xaml;Views\PointAddWindow.xaml;
 
 True
