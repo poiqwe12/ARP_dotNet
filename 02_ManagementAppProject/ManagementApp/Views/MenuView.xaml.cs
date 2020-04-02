@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ManagementApp.DataBase;
 using ManagementApp.Model;
 
 namespace ManagementApp.Views
@@ -42,7 +43,18 @@ namespace ManagementApp.Views
             taskCollectionsList.Add(taskCollection);
 
             TreeViev_Menu.ItemsSource = taskCollectionsList;
-
+            using (var context = new DBEntities())
+            {
+                var b = new Collections { ColletionName = "2132sdas", Description = "ds21d" };
+                context.Collections.Add(b);
+                context.SaveChanges();
+            }
+            using (var context = new DBEntities())
+            {
+                var b = new Collections { ColletionName = "12122132sdas", Description = "ds21ddsf" };
+                context.Collections.Add(b);
+                context.SaveChanges();
+            }
 
         }
 
@@ -62,6 +74,7 @@ namespace ManagementApp.Views
 
         private void AddCollectionButton_Click(object sender, RoutedEventArgs e)
         {
+            
 
         }
 
