@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ManagementApp.Views"
-      xmlns:self="clr-namespace:ManagementApp.Model"
+      xmlns:self="clr-namespace:ManagementApp.DataBase"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="200"
       Title="MenuView">
@@ -81,7 +81,7 @@
                           ItemContainerStyle="{StaticResource TreeItemStyle}"
                           SelectedItemChanged="TreeViev_Menu_SelectedItemChanged">
                     <TreeView.Resources>
-                        <HierarchicalDataTemplate DataType="{x:Type self:TaskCollection}" ItemsSource="{Binding Tasks}">
+                        <HierarchicalDataTemplate DataType="{x:Type self:Collection}" ItemsSource="{Binding Tasks}">
                             <StackPanel Orientation="Horizontal">
                                 <Image Source="/Image/SmalSignature/folder.png" 
                                        Width="16" Height="16"/>

@@ -20,7 +20,7 @@ namespace ManagementApp.Controler
 
 	static public class AppControler
 	{
-		public static void AddCollection(Collections newCollection)
+		public static void AddCollection(Collection newCollection)
 		{
 			using (var context = new DBEntities())
 			{
@@ -28,7 +28,7 @@ namespace ManagementApp.Controler
 				context.SaveChanges();
 			}
 		}
-		public static void AddPoint(Points newPoints)
+		public static void AddPoint(Point newPoints)
 		{
 			using (var context = new  DBEntities())
 			{

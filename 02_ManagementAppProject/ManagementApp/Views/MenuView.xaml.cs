@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ManagementApp.DataBase;
-using ManagementApp.Model;
+
 
 namespace ManagementApp.Views
 {
@@ -23,39 +23,10 @@ namespace ManagementApp.Views
 
     public partial class MenuView : Page
     {
-        List<TaskCollection> taskCollectionsList = new List<TaskCollection>();
-        TaskCollection taskCollection = new TaskCollection();
-        Task task = new Task();
-        Model.Point point = new Model.Point();
-        Task task1 = new Task();
-        Model.Point point1 = new Model.Point();
-
-
         public MenuView()
         {
             InitializeComponent();
-  
-            task.Points.Add(point);
-            taskCollection.Tasks.Add(task);
-            task.Points.Add(point1);
-            taskCollection.Tasks.Add(task1);
-            taskCollectionsList.Add(taskCollection);
-            taskCollectionsList.Add(taskCollection);
-
-            TreeViev_Menu.ItemsSource = taskCollectionsList;
-            using (var context = new DBEntities())
-            {
-                var b = new Collections { ColletionName = "2132sdas", Description = "ds21d" };
-                context.Collections.Add(b);
-                context.SaveChanges();
-            }
-            using (var context = new DBEntities())
-            {
-                var b = new Collections { ColletionName = "12122132sdas", Description = "ds21ddsf" };
-                context.Collections.Add(b);
-                context.SaveChanges();
-            }
-
+           // TreeViev_Menu.ItemsSource = taskCollectionsList;
         }
 
 

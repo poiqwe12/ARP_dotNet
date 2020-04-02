@@ -10,7 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ManagementApp.Model;
+
 
 namespace ManagementApp.Views
 {
@@ -19,38 +19,14 @@ namespace ManagementApp.Views
     /// </summary>
     public partial class TaskListView : Page
     {
-        public List<Task> taskList = new List<Task>();
+
         public TaskListView()
         {
 
             InitializeComponent();
 
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
-            taskList.Add(new Task());
 
-            ListView_TasksList.ItemsSource = taskList;
+           // ListView_TasksList.ItemsSource = taskList;
 
 
         }

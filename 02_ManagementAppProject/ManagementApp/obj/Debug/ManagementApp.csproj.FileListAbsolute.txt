@@ -120,3 +120,11 @@ C:\Users\Łukasz Głowacki\Desktop\02_04_cszarp\ARP_dotNet\02_ManagementAppProje
 C:\Users\Łukasz Głowacki\Desktop\02_04_cszarp\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\Łukasz Głowacki\Desktop\02_04_cszarp\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp_Content.g.cs
 C:\Users\Łukasz Głowacki\Desktop\02_04_cszarp\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp.csproj.CopyComplete
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\Database1.mdf
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\Database1_log.ldf
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\EntityFramework.dll
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\EntityFramework.xml
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp_Content.g.cs
+C:\Users\ABacz\Desktop\ARP_dotNet\02_ManagementAppProject\ManagementApp\obj\Debug\ManagementApp.csproj.CopyComplete

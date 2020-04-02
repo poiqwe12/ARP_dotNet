@@ -25,8 +25,8 @@ namespace ManagementApp.DataBase
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Collections> Collections { get; set; }
-        public virtual DbSet<Points> Points { get; set; }
-        public virtual DbSet<Tasks> Tasks { get; set; }
+        public virtual DbSet<Collection> Collections { get; set; }
+        public virtual DbSet<Point> Points { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
     }
 }

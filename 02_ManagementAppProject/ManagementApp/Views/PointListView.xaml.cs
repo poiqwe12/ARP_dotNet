@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ManagementApp.Model;
 
 namespace ManagementApp.Views
 {
@@ -21,46 +20,13 @@ namespace ManagementApp.Views
     /// </summary>
     public partial class PointListView : Page
     {
-        List<Model.Point> points = new List<Model.Point>();
-
-
         public PointListView()
         {
             InitializeComponent();
 
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
-            points.Add(new Model.Point());
+           
 
-
-            ListView_PointsList.ItemsSource = points;
+            //ListView_PointsList.ItemsSource = points;
 
         }
     }
