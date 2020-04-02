@@ -179,5 +179,14 @@
   <ItemGroup>
     <Resource Include="Image\SmalSignature\approval.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SmalSignature\addfolder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SmalSignature\addtask.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SmalSignature\addpoint.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
