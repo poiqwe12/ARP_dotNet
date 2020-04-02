@@ -32,15 +32,22 @@ namespace ManagementApp.Views
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            TaskCollection newTaskCollection = new TaskCollection()
+            if(NameTextBox.Text == "") //Jeśli puste pole
             {
-                Name = NameTextBox.Text,
-                Description = DescriptionTextBox.Text
-            };
+                InformationText.Text = "Proszę uzupełnij nazwę zbioru.";
+            }
+            else
+            {
+                TaskCollection newTaskCollection = new TaskCollection()
+                {
+                    Name = NameTextBox.Text,
+                    Description = DescriptionTextBox.Text
+                };
 
-            AppControler.AddCollection(newTaskCollection);
+                AppControler.AddCollection(newTaskCollection);
 
-           this.Close();
+                this.Close();
+            }
         }
     }
 }

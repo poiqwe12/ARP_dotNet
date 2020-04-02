@@ -18,9 +18,10 @@
             <TextBlock  Margin="2"  Text="." FontWeight="Bold"/>
             <TextBox x:Name="MonthTextBox" Height="20" Width="20" FontSize="12" MaxLength="2" />
             <TextBlock Margin="2" Text="." FontWeight="Bold"/>
-            <TextBox x:Name="YearlineTextBox" Height="20" Width="20" FontSize="12" MaxLength="2" />
+            <TextBox x:Name="YearTextBox" Height="20" Width="20" FontSize="12" MaxLength="2" />
             <TextBlock Margin="2"  Text="r." FontWeight="Bold"/>
         </StackPanel>
+        <TextBlock x:Name="InformationText" DockPanel.Dock="Top" Text="" FontSize="10" Foreground="Red" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
