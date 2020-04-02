@@ -15,6 +15,7 @@
         <TextBox x:Name="NameTextBox" DockPanel.Dock="Top" Height="20" FontSize="12" />
         <TextBlock  DockPanel.Dock="Top" Text="Opis:" FontWeight="Bold"/>
         <TextBox x:Name="DescriptionTextBox" DockPanel.Dock="Top" Height="60" FontSize="12" MaxLength="500" TextWrapping="Wrap" AcceptsReturn="True"  />
+        <TextBlock x:Name="InformationText" DockPanel.Dock="Top" Text="" FontSize="10" Foreground="Red" />
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
