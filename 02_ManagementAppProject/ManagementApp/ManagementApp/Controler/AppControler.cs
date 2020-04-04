@@ -10,8 +10,6 @@ using ManagementApp.DataBase;
 
 namespace ManagementApp.Controler
 {
-	// TODO: Zrobić funkcje odczytującą położenie myszy
-
 	static public class AppControler
 	{
 		//Stałe:

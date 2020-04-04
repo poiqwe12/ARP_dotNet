@@ -37,6 +37,7 @@
             </Style.Triggers>
         </Style>
 
+
     </Page.Resources>
     
     <Grid>
@@ -94,17 +95,68 @@
             <ScrollViewer HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" 
                           VerticalScrollBarVisibility="Auto"      
                           Background="#404040">
-
-                <TreeView Name="TreeViev_Menu"
+                <!--Pole służące głównie do dodawania kolekcji-->
+                <DockPanel>
+                    <Button DockPanel.Dock="Top" Background="Transparent" BorderBrush="Transparent"
+                            HorizontalAlignment="Left">
+                        <WrapPanel Background="Transparent" Margin="0">
+                            <WrapPanel.ContextMenu >
+                                <ContextMenu Background="#262626" BorderThickness="0">
+                                    <MenuItem Name="AddTaskCollectionMenuItem" Header="Dodaj kolekcje"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="AddTaskCollectionMenuItem_Click">
+                                        <MenuItem.Icon>
+                                            <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </WrapPanel.ContextMenu>
+                            <Image Width="16" Height="16" Source="/Image/SmalSignature/addfolder.png"/>
+                            <TextBlock DockPanel.Dock="Top" Text="Zasoby:" Margin="5,0,0,0" 
+                               FontSize="12" Foreground="White"></TextBlock>
+                        </WrapPanel>
+                    </Button>
+                    
+                    <TreeView Name="TreeViev_Menu"
                           Background="Transparent"
                           BorderThickness="0"
                           ItemContainerStyle="{StaticResource TreeItemStyle}"
                           MouseEnter="TreeViev_Menu_MouseEnter"
-                          MouseLeave="TreeViev_Menu_MouseLeave"
+                          MouseLeave="TreeViev_Menu_MouseLeave"    
                           SelectedItemChanged="TreeViev_Menu_SelectedItemChanged">
+  
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type self:TaskCollection}" ItemsSource="{Binding Tasks}">
                             <StackPanel Orientation="Horizontal">
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu Background="#262626" BorderThickness="0">
+                                        <MenuItem Name="AddTaskMenuItem" Header="Dodaj zadanie"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="AddTaskMenuItem_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Name="DeleteCollectionMenuItem" Header="Usuń kolekcje"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="DeleteCollectionMenuItem_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Name="EditCollectionMenuItem" Header="Edytuj kolekcje"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="EditCollectionMenuItem_Click">
+                                            <MenuItem.Icon >
+                                                <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
                                 <Image Source="/Image/SmalSignature/folder.png" 
                                        Width="16" Height="16"/>
                                 <TextBlock Text="{Binding Name}"
@@ -113,6 +165,34 @@
                         </HierarchicalDataTemplate>
                         <DataTemplate DataType="{x:Type self:Task}">
                             <StackPanel Orientation="Horizontal">
+                                <StackPanel.ContextMenu>
+                                    <ContextMenu Background="#262626" BorderThickness="0" >
+                                        <MenuItem Name="AddPointMenuItem" Header="Dodaj zadanie"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="AddPointMenuItem_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Name="DeleteTaskMenuItem" Header="Usuń zadanie"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="DeleteTaskMenuItem_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                        <MenuItem Name="EditTaskMenuItem" Header="Edytuj zadanie"
+                                                  Foreground="White" Background="#262626"
+                                                  BorderThickness="0" 
+                                                  Click="EditTaskMenuItem_Click">
+                                            <MenuItem.Icon>
+                                                <Image Source="/Image/SmalSignature/addfolder.png"/>
+                                            </MenuItem.Icon>
+                                        </MenuItem>
+                                    </ContextMenu>
+                                </StackPanel.ContextMenu>
                                 <Image Source="/Image/SmalSignature/approval.png" 
                                        Width="12" Height="12"/>
                                 <TextBlock Text="{Binding Name}"
@@ -121,7 +201,7 @@
                         </DataTemplate>
                     </TreeView.Resources>
                 </TreeView>
-
+                </DockPanel>
             </ScrollViewer>
 
             <TextBlock  x:Name="tekst"

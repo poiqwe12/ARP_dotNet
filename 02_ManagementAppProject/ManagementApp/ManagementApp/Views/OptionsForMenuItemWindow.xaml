@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManagementApp.Views"
         mc:Ignorable="d"
-        Title="OptionsForMenuItemWindow" Height="100" Width="80"
+        Title="OptionsForMenuItemWindow" Height="200" Width="200"
         ResizeMode="NoResize"
         ShowInTaskbar="False"
         WindowStyle="None"
@@ -34,9 +34,19 @@
             </Style.Triggers>
         </Style>
 
+
+        <ContextMenu x:Key="cmButton">
+            <MenuItem Header="Menu item 1" />
+            <MenuItem Header="Menu item 2" />
+            <Separator />
+            <MenuItem Header="Menu item 3" />
+        </ContextMenu>
+
     </Window.Resources>
 
     <StackPanel>
+
+
         <Button x:Name="AddButton"
                 HorizontalAlignment="Left"
                 Height="20"
@@ -52,36 +62,7 @@
                 </TextBlock>
             </WrapPanel>
         </Button>
-        <Button x:Name="EditButton"
-                HorizontalAlignment="Left"
-                Height="20"
-                Margin="5,2,2,0"
-                Style="{StaticResource MyMouseOverColor}" 
-                Click="EditButton_Click">
-            <WrapPanel>
-                <Image Source="/Image/SmalSignature/addfolder.png" />
-                <TextBlock Text="Edytuj"
-                           Margin="10,0,0,0"          
-                           Foreground="White"
-                           VerticalAlignment="Center">
-                </TextBlock>
-            </WrapPanel>
-        </Button>
-        <Button x:Name="DeleteButton"
-                HorizontalAlignment="Left"
-                Height="20"
-                Margin="5,2,2,0"
-                Style="{StaticResource MyMouseOverColor}" 
-                Click="DeleteButton_Click">
-            <WrapPanel>
-                <Image Source="/Image/SmalSignature/addfolder.png" />
-                <TextBlock Text="Usuń"
-                           Margin="10,0,0,0"          
-                           Foreground="White"
-                           VerticalAlignment="Center">
-                </TextBlock>
-            </WrapPanel>
-        </Button>
+
 
 
 

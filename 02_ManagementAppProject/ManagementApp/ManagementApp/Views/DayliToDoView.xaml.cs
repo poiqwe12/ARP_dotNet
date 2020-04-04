@@ -32,5 +32,8 @@ namespace ManagementApp.Views
             DayliToDoList.ItemsSource = AppControler.dayliToDopointListSource;
 
         }
+
+        // TODO: Dodać ContextMenu do DayliToDO 
+
     }
 }

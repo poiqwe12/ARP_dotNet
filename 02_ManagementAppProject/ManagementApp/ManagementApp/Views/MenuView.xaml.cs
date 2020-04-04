@@ -43,6 +43,8 @@ namespace ManagementApp.Views
             isMouseEnter = false;
         }
 
+
+
         private void TreeViev_Menu_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
 
@@ -99,5 +101,48 @@ namespace ManagementApp.Views
         {
             TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
+
+
+        // TODO: Dodać funkcje do pasków w menu
+        // TODO: Okomentować bloki o takiej samej funkcjonalności
+        // TODO: Spróbować stworzyć 3 poziomowe drzewko  w menu !!! 
+
+        private void AddTaskCollectionMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Views.TaskCollectionAddWindow pointAddWindow = new Views.TaskCollectionAddWindow();
+            pointAddWindow.Show();
+        }
+        private void AddTaskMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Views.TaskAddWindow pointAddWindow = new Views.TaskAddWindow();
+            pointAddWindow.Show();
+        }
+        private void DeleteCollectionMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void EditCollectionMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddPointMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Views.PointAddWindow pointAddWindow = new Views.PointAddWindow();
+            pointAddWindow.Show();
+        }
+
+        private void DeleteTaskMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+        private void EditTaskMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
