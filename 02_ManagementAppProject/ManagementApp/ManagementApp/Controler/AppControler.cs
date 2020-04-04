@@ -106,7 +106,9 @@ namespace ManagementApp.Controler
 		/********************************/
 
 		// TODO: Poprawić dodawanie tak by generowany był niepowtażalny klucz własny! Teraz  chyba się nie generuje!
-		
+		// TODO: Napisać testy jednostkowe do wszystkich funkcji komunikujących się z bazą danych!
+		// TODO: Wdrożyć obsługę wyjątkuw dla wszystkich funkcji komunikujących się z bazą danych!
+
 		//Dodawanie do bazy danych:
 		public static void AddCollection(TaskCollection newCollection)
 		{

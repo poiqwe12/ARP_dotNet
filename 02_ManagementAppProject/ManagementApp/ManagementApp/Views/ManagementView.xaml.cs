@@ -43,7 +43,6 @@ namespace ManagementApp.Views
             if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
             {
                 TaskListToRender.Visibility = Visibility.Visible;
-
             }
             else if(AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
             {
