@@ -33,6 +33,7 @@ namespace ManagementApp.Views
             TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
 
+
         private void TreeViev_Menu_MouseEnter(object sender, MouseEventArgs e)
         {
             isMouseEnter = true;
