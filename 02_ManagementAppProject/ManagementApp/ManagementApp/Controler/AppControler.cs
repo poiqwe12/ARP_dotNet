@@ -14,12 +14,13 @@ namespace ManagementApp.Controler
 
 	static public class AppControler
 	{
+		//Stałe:
 		public const string TaskCollectionType = "TaskCollection";
 		public const string TaskType = "Task";
 		public const string PointType = "Point";
 		public const string NullType = "Null";
 
-		//Dane
+		//Dane:
 		static public int ActualChosenCollectionInMenu = -1;
 		static public int ActualChosenTaskInMenu = -1;
 		static public string ActualChosenTypeInMenu = NullType;
@@ -28,6 +29,7 @@ namespace ManagementApp.Controler
 		static public ObservableCollection<Task> taskListSource;
 		static public ObservableCollection<Point> pointListSource;
 
+		//Konstruktor statyczny:
 		static AppControler()
 		{
 			menuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
@@ -103,7 +105,9 @@ namespace ManagementApp.Controler
 		}
 		/********************************/
 
-
+		// TODO: Poprawić dodawanie tak by generowany był niepowtażalny klucz własny! Teraz  chyba się nie generuje!
+		
+		//Dodawanie do bazy danych:
 		public static void AddCollection(TaskCollection newCollection)
 		{
 			using (var context = new AppDataBase())
@@ -131,7 +135,9 @@ namespace ManagementApp.Controler
 				context.SaveChanges();
 			}
 		}
+		/*************************/
 
+		//Usuwanie z bazy danych:
 		public static void DeleteCollection(int collection_ID)
 		{
 			using (var context = new AppDataBase())
@@ -147,6 +153,7 @@ namespace ManagementApp.Controler
                   .Where(s => s.StudentName == name)
                   .FirstOrDefault<Student>()
 		 */
+
 		public static void DeleteTask(int collection_ID, int task_ID)
 		{
 			using (var context = new AppDataBase())
@@ -167,6 +174,9 @@ namespace ManagementApp.Controler
 
 			}
 		}
+		/***********************/
+
+		//Wprowadzanie zmian do elementów bazy danych:
 		public static void ChangeCollectionProperties(int collection_ID, TaskCollection newCollection) //???
 		{
 			using (var context = new AppDataBase())
@@ -207,7 +217,9 @@ namespace ManagementApp.Controler
 				context.SaveChanges();
 			}
 		}
+		/********************************************/
 
+		//Pobieranie elementów z bazy danych:
 		public static TaskCollection GetTaskCollection(int collection_ID)
 		{
 			using (var context = new AppDataBase())
@@ -232,9 +244,11 @@ namespace ManagementApp.Controler
 				return findedPoint;
 			}
 		}
+		/***********************************/
 
 
 		// TODO: Poprawić funkcje tak by zwracały właściwe zbiory danych...
+		// Pobieranie pełnych kolekcji z bazy danych:
 		public static List<TaskCollection> GetCollectionsList()
 		{
 			using (var context = new AppDataBase())
@@ -259,6 +273,7 @@ namespace ManagementApp.Controler
 				return List;
 			}
 		}
+		/*******************************************/
 
 
 
