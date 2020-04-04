@@ -67,6 +67,13 @@
                         Click="AddPointButton_Click">
                     <Image Source="/Image/SmalSignature/addpoint.png"/>
                 </Button>
+                <Button x:Name="Button"
+                        Width="20" Height="20"
+                        Margin="2"
+                        Style="{StaticResource MyMouseOverColor}"
+                        Click="Button_Click">
+                    <TextBlock Text="T"/>
+                </Button>
             </StackPanel>
             <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black"></Rectangle>
             
@@ -102,10 +109,10 @@
 
             </ScrollViewer>
 
-            <TextBlock x:Name="tekst"
+            <TextBlock  x:Name="tekst"
                         Text="JAkiesda;asd"
                        FontSize="12"></TextBlock>
-            
+
         </DockPanel>
 
     </Grid>

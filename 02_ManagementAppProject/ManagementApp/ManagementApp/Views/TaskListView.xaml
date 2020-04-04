@@ -16,21 +16,21 @@
         
         <!--Szablon dla komurki nazwa: -->
         <DataTemplate x:Key="NameTemplate" DataType="{x:Type GridViewColumn}">
-            <TextBlock Text="{Binding Name}" 
+            <TextBlock Text="{Binding TaskName}" 
                        Width="200"/>
         </DataTemplate>
         <!--Szablon dla komurki postęp: -->
         <DataTemplate x:Key="ProgresTemplate" DataType="{x:Type GridViewColumn}">
-            <ProgressBar Value="{Binding PercentageCompletion}"
+            <ProgressBar Value="{Binding Percenttarget}"
                          Width="100" Height="10"/>
         </DataTemplate>
         <!--Szablon dla komurki deadline: -->
         <DataTemplate x:Key="DeadlineDateTemplate" DataType="{x:Type GridViewColumn}">
-            <Label Content="{Binding DeadlineDate}"/>
+            <Label Content="{Binding DeadLine}"/>
         </DataTemplate>
         <!--Szablon dla komurki zakończenie: -->
         <DataTemplate x:Key="CompletionDateTemplate" DataType="{x:Type GridViewColumn}">
-            <Label Content="{Binding CompletionDate}"/>
+            <Label Content="{Binding Completion}"/>
         </DataTemplate>
 
         <Style x:Key="ListStyle" TargetType="ListViewItem">

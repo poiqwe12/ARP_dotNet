@@ -11,7 +11,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using ManagementApp.DataBase;
+
+using ManagementApp.DataBase;
+using ManagementApp.Controler;
 
 
 namespace ManagementApp.Views
@@ -21,26 +23,27 @@ namespace ManagementApp.Views
     /// </summary>
     /// 
 
-    public partial class MenuView : Page
+    public partial class MenuView : Page 
     {
         public MenuView()
         {
             InitializeComponent();
-           // TreeViev_Menu.ItemsSource = taskCollectionsList;
+            TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
 
 
         private void TreeViev_Menu_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {
+        {/*
             if(TreeViev_Menu.SelectedItem.GetType().ToString() == "ManagementApp.DataBase.Collection")
             {
-                tekst.Text = TreeViev_Menu.SelectedItem.ToString();
+                tekst.Text = TreeViev_Menu.SelectedItem.GetType().ToString();
 
             }
-            else if (TreeViev_Menu.SelectedItem.ToString() == "ManagementApp.Model.Task")
+            else if (TreeViev_Menu.SelectedItem.GetType().ToString() == "ManagementApp.Model.Task")
             {
                 tekst.Text = TreeViev_Menu.SelectedItem.GetType().ToString();
             }
+            */
         }
 
         private void AddCollectionButton_Click(object sender, RoutedEventArgs e)
@@ -60,5 +63,9 @@ namespace ManagementApp.Views
             pointAddWindow.Show();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
+        }
     }
 }

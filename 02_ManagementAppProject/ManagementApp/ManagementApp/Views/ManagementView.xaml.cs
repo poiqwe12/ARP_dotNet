@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ManagementApp.Controler;
+using ManagementApp.DataBase;
+
 namespace ManagementApp.Views
 {
     /// <summary>
@@ -23,6 +26,14 @@ namespace ManagementApp.Views
         public ManagementView()
         {
             InitializeComponent();
+
+
+            //W tej klasie należy określić który będzie widziany, a który nie na podstawie zaznaczonego elementu w menu
+            
+            //PoinListToRender
+            //TaskListToRender
+
+
         }
     }
 }

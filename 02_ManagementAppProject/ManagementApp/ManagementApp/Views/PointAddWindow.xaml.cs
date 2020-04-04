@@ -65,7 +65,7 @@ namespace ManagementApp.Views
                     //Jeśli wszystko poszło dobrze to wysyłamy
                     ManagementApp.DataBase.Point newPoint = new ManagementApp.DataBase.Point()
                     {
-                        Task_ID = 0,   //<<<<<------------zaktualizować indeks !!!!
+                        Task_ID = 1,   //<<<<<------------zaktualizować indeks !!!!
                         Name = NameTextBox.Text,
                         DeadLineDate = newDate
                     };

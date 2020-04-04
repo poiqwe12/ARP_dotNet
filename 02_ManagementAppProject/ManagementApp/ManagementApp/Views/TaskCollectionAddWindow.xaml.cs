@@ -45,7 +45,6 @@ namespace ManagementApp.Views
                 };
 
                 AppControler.AddCollection(newTaskCollection);
-
                 this.Close();
             }
         }

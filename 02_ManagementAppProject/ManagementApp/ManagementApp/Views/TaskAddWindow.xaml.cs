@@ -65,7 +65,8 @@ namespace ManagementApp.Views
                     //Jeśli wszystko poszło dobrze to wysyłamy
                     ManagementApp.DataBase.Task newTask = new ManagementApp.DataBase.Task()
                     {
-                        Collection_ID = 0,              //<<<<<------------zaktualizować indeks !!!!
+                        Collection_ID = 1,
+                        Task_ID = 1 + DateTime.Now.Millisecond,
                         TaskName = NameTextBox.Text,
                         DeadLine = newDate,
                         Description = DescriptionTextBox.Text

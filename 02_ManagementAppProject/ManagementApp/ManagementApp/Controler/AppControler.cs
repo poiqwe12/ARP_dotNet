@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using ManagementApp.DataBase;
+
 
 
 namespace ManagementApp.Controler
@@ -10,9 +13,90 @@ namespace ManagementApp.Controler
 
 	static public class AppControler
 	{
+
 		//Dane
 		static public int ActualChosenElementInMenu = -1;
 		static public string ActualChosenTypeInMenu = "Null";
+
+		static public ObservableCollection<TaskCollection> menuTreeSource;
+		static public ObservableCollection<Task> taskListSource;
+		static public ObservableCollection<Point> pointListSource;
+
+		static AppControler()
+		{
+			menuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
+			taskListSource = AppControler.ConvertListToObservableCollection_Task(AppControler.GetTasksList());
+			pointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
+		}
+
+		//Konwersja typów:
+		public static ObservableCollection<TaskCollection> ConvertListToObservableCollection_TaskCollection(List<TaskCollection> taskCollectionsToConvert) 
+		{
+			ObservableCollection<TaskCollection> newTaskObservableCollections = new ObservableCollection<TaskCollection>();
+			foreach (var item in taskCollectionsToConvert)
+			{
+				newTaskObservableCollections.Add(item);
+			}
+			return newTaskObservableCollections;
+		}
+
+		public static ObservableCollection<Task> ConvertListToObservableCollection_Task(List<Task> taskToConvert)
+		{
+			ObservableCollection<Task> newTaskObservableCollections = new ObservableCollection<Task>();
+			foreach (var item in taskToConvert)
+			{
+				newTaskObservableCollections.Add(item);
+			}
+			return newTaskObservableCollections;
+		}
+
+		public static ObservableCollection<Point> ConvertListToObservableCollection_Point(List<Point> pointToConvert)
+		{
+			ObservableCollection<Point> newPointObservableCollections = new ObservableCollection<Point>();
+			foreach (var item in pointToConvert)
+			{
+				newPointObservableCollections.Add(item);
+			}
+			return newPointObservableCollections;
+		}
+		/***************/
+
+		//Aktualizacja zasobów dla widoku:
+		public static void menuTreeSourceUpdate()
+		{
+			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
+			//Inaczej źródło się zmieni i nie będzie widać zmian!
+			ObservableCollection<TaskCollection>  newMenuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
+			menuTreeSource.Clear();
+			foreach (var item in newMenuTreeSource)
+			{
+				menuTreeSource.Add(item);
+			}
+		}
+		public static void taskListSourceUpdate()
+		{
+			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
+			//Inaczej źródło się zmieni i nie będzie widać zmian!
+			ObservableCollection<Task> newTaskListSource = AppControler.ConvertListToObservableCollection_Task(AppControler.GetTasksList());
+			taskListSource.Clear();
+			foreach (var item in newTaskListSource)
+			{
+				taskListSource.Add(item);
+			}
+		}
+		public static void pointListSourceUpdate()
+		{
+			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
+			//Inaczej źródło się zmieni i nie będzie widać zmian!
+			ObservableCollection<Point> newPointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
+			pointListSource.Clear();
+			foreach (var item in newPointListSource)
+			{
+				pointListSource.Add(item);
+			}
+		}
+		/********************************/
+
 
 		public static void AddCollection(TaskCollection newCollection)
 		{
@@ -21,6 +105,7 @@ namespace ManagementApp.Controler
 				context.TaskCollection.Add(newCollection);
 				context.SaveChanges();
 			}
+			menuTreeSourceUpdate(); //Aktualizacja menu
 		}
 		public static void AddTask(Task newTask)
 		{
@@ -29,6 +114,8 @@ namespace ManagementApp.Controler
 				context.Task.Add(newTask);
 				context.SaveChanges();
 			}
+			menuTreeSourceUpdate(); //Aktualizacja menu
+			taskListSourceUpdate(); //Aktualizacja menu i listy zadań
 		}
 		public static void AddPoint(Point newPoints)
 		{
@@ -139,27 +226,27 @@ namespace ManagementApp.Controler
 				return findedPoint;
 			}
 		}
-		public static IList<TaskCollection> GetCollectionsList()
+		public static List<TaskCollection> GetCollectionsList()
 		{
 			using (var context = new AppDataBase())
 			{
-				IList<TaskCollection> List = context.TaskCollection.ToList<TaskCollection>();
+				List<TaskCollection> List = context.TaskCollection.ToList<TaskCollection>();
 				return List;
 			}
 		}
-		public static IList<Task> GetTasksList()
+		public static List<Task> GetTasksList()
 		{
 			using (var context = new AppDataBase())
 			{
-				IList<Task> List = context.Task.ToList<Task>();
+				List<Task> List = context.Task.ToList<Task>();
 				return List;
 			}
 		}
-		public static IList<Point> GetPointsList()
+		public static List<Point> GetPointsList()
 		{
 			using (var context = new AppDataBase())
 			{
-				IList<Point> List = context.Point.ToList<Point>();
+				List<Point> List = context.Point.ToList<Point>();
 				return List;
 			}
 		}

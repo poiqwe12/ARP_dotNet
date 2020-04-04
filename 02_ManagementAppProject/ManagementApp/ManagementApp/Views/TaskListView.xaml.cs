@@ -11,6 +11,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ManagementApp.DataBase;
+using ManagementApp.Controler;
+
 
 namespace ManagementApp.Views
 {
@@ -24,11 +27,7 @@ namespace ManagementApp.Views
         {
 
             InitializeComponent();
-
-
-           // ListView_TasksList.ItemsSource = taskList;
-
-
+            ListView_TasksList.ItemsSource = AppControler.taskListSource;
         }
 
 
