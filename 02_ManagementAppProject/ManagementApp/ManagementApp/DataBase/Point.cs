@@ -24,5 +24,12 @@ namespace ManagementApp.DataBase
         public string Description { get; set; }
     
         public virtual Task Task { get; set; }
+
+
+        public override string ToString()
+        {
+            return "Point";
+        }
+
     }
 }

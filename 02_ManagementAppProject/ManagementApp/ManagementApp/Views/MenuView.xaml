@@ -67,6 +67,7 @@
                         Click="AddPointButton_Click">
                     <Image Source="/Image/SmalSignature/addpoint.png"/>
                 </Button>
+                <!--Wykożystywany jedynie do testów!!!!!-->
                 <Button x:Name="Button"
                         Width="20" Height="20"
                         Margin="2"
@@ -86,6 +87,8 @@
                           Background="#404040"
                           BorderThickness="0"
                           ItemContainerStyle="{StaticResource TreeItemStyle}"
+                          MouseEnter="TreeViev_Menu_MouseEnter"
+                          MouseLeave="TreeViev_Menu_MouseLeave"
                           SelectedItemChanged="TreeViev_Menu_SelectedItemChanged">
                     <TreeView.Resources>
                         <HierarchicalDataTemplate DataType="{x:Type self:TaskCollection}" ItemsSource="{Binding Tasks}">

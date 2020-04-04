@@ -15,7 +15,8 @@ namespace ManagementApp.Controler
 	{
 
 		//Dane
-		static public int ActualChosenElementInMenu = -1;
+		static public int ActualChosenCollectionInMenu = -1;
+		static public int ActualChosenTaskInMenu = -1;
 		static public string ActualChosenTypeInMenu = "Null";
 
 		static public ObservableCollection<TaskCollection> menuTreeSource;
@@ -84,6 +85,8 @@ namespace ManagementApp.Controler
 				taskListSource.Add(item);
 			}
 		}
+
+
 		public static void pointListSourceUpdate()
 		{
 			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 

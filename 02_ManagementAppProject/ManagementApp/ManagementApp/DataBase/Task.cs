@@ -31,5 +31,11 @@ namespace ManagementApp.DataBase
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Point> Point { get; set; }
         public virtual TaskCollection TaskCollection { get; set; }
+
+        public override string ToString()
+        {
+            return "Task";
+        }
+
     }
 }

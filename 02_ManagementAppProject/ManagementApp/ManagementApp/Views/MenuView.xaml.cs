@@ -25,25 +25,56 @@ namespace ManagementApp.Views
 
     public partial class MenuView : Page 
     {
+        private bool isMouseEnter;
+
         public MenuView()
         {
             InitializeComponent();
             TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
 
+        private void TreeViev_Menu_MouseEnter(object sender, MouseEventArgs e)
+        {
+            isMouseEnter = true;
+        }
+        private void TreeViev_Menu_MouseLeave(object sender, MouseEventArgs e)
+        {
+            isMouseEnter = false;
+        }
 
         private void TreeViev_Menu_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
-        {/*
-            if(TreeViev_Menu.SelectedItem.GetType().ToString() == "ManagementApp.DataBase.Collection")
-            {
-                tekst.Text = TreeViev_Menu.SelectedItem.GetType().ToString();
+        {
 
-            }
-            else if (TreeViev_Menu.SelectedItem.GetType().ToString() == "ManagementApp.Model.Task")
+            if (isMouseEnter) //Zabezpieczenie przed wywołaniem w czasie zmian
             {
-                tekst.Text = TreeViev_Menu.SelectedItem.GetType().ToString();
+
+                if (TreeViev_Menu.SelectedItem.ToString() == "TaskCollection") // Jeśli nie działą to przez funkcje ToString
+                {
+                    tekst.Text = "TaskCollection";
+                    AppControler.ActualChosenTypeInMenu = "TaskCollection";
+                    TaskCollection actualTaskCollection = new TaskCollection();
+                    actualTaskCollection = (TaskCollection)TreeViev_Menu.SelectedItem;
+                    AppControler.ActualChosenCollectionInMenu = actualTaskCollection.TaskCollection_ID;
+                }
+                else if (TreeViev_Menu.SelectedItem.GetType().ToString() == "Task") // Jeśli nie działą to przez funkcje ToString
+                {
+                    tekst.Text = "Task";
+                    AppControler.ActualChosenTypeInMenu = "Task";
+                    Task actualTask = new Task();
+                    actualTask = (Task)TreeViev_Menu.SelectedItem;
+                    AppControler.ActualChosenCollectionInMenu = actualTask.Collection_ID;
+                    AppControler.ActualChosenTaskInMenu = actualTask.Task_ID;
+                }
+                else
+                {
+                    tekst.Text = "null";
+                    AppControler.ActualChosenTypeInMenu = "null";
+                    AppControler.ActualChosenCollectionInMenu = -1;
+                    AppControler.ActualChosenTaskInMenu = -1;
+                }
             }
-            */
+            else tekst.Text = "Poza";
+
         }
 
         private void AddCollectionButton_Click(object sender, RoutedEventArgs e)
