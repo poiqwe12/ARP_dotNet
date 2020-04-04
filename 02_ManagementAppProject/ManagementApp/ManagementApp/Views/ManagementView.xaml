@@ -26,6 +26,6 @@
             <!--Spliter:-->
             <GridSplitter ShowsPreview="true" Grid.Column="3" Width="2" HorizontalAlignment="Stretch" Background="Black"/>
             <!--Do zrobienia dzisiaj:-->
-            <Canvas Grid.Column="4" MinWidth="200" Background="#404040" HorizontalAlignment="Stretch"></Canvas>
-        </Grid>
+            <Frame x:Name="DayliToDo" Grid.Column="4" Source="DayliToDoView.xaml" HorizontalAlignment="Stretch"></Frame>
+    </Grid>
 </Page>

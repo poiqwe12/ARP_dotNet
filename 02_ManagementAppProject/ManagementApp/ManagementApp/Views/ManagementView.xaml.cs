@@ -27,8 +27,6 @@ namespace ManagementApp.Views
         public ManagementView()
         {
             InitializeComponent();
-            PoinListToRender.Visibility = Visibility.Hidden;
-            TaskListToRender.Visibility = Visibility.Hidden;
 
             //  DispatcherTimer setup
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
@@ -40,6 +38,8 @@ namespace ManagementApp.Views
         //Cykliczne przerwanie odświeżające okno z listami:
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
+            TaskListToRender.Visibility = Visibility.Hidden;
+            PoinListToRender.Visibility = Visibility.Hidden;
             if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
             {
                 TaskListToRender.Visibility = Visibility.Visible;
@@ -48,12 +48,6 @@ namespace ManagementApp.Views
             {
                 PoinListToRender.Visibility = Visibility.Visible;
             }
-            else
-            {
-                TaskListToRender.Visibility = Visibility.Hidden;
-                PoinListToRender.Visibility = Visibility.Hidden;
-            }
-
         }
 
 

@@ -78,13 +78,25 @@
             </StackPanel>
             <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black"></Rectangle>
             
+            <!--Nagłówek:-->
+            <StackPanel Background="#505050" DockPanel.Dock="Top">
+                <TextBlock  x:Name="Haeder"
+                            Text="MENU"
+                            FontSize="14" FontWeight="Bold" 
+                            FontFamily="Isocteur"
+                            Foreground="White"
+                            HorizontalAlignment="Center">
+                </TextBlock>
+            </StackPanel>
+            <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black"></Rectangle>
+
             <!--Pole z drzewkiem zadań-->
             <ScrollViewer HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" 
                           VerticalScrollBarVisibility="Auto"      
                           Background="#404040">
 
                 <TreeView Name="TreeViev_Menu"
-                          Background="#404040"
+                          Background="Transparent"
                           BorderThickness="0"
                           ItemContainerStyle="{StaticResource TreeItemStyle}"
                           MouseEnter="TreeViev_Menu_MouseEnter"

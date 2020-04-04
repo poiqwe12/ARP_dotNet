@@ -67,7 +67,8 @@ namespace ManagementApp.Views
                     {
                         Task_ID = 1,   //<<<<<------------zaktualizować indeks !!!!
                         Name = NameTextBox.Text,
-                        DeadLineDate = newDate
+                        DeadLineDate = newDate,
+                        ExecutionStatus = false
                     };
 
                     AppControler.AddPoint(newPoint);

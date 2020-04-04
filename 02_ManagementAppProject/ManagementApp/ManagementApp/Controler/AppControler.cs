@@ -28,6 +28,7 @@ namespace ManagementApp.Controler
 		static public ObservableCollection<TaskCollection> menuTreeSource;
 		static public ObservableCollection<Task> taskListSource;
 		static public ObservableCollection<Point> pointListSource;
+		static public ObservableCollection<Point> dayliToDopointListSource;
 
 		//Konstruktor statyczny:
 		static AppControler()
@@ -35,6 +36,7 @@ namespace ManagementApp.Controler
 			menuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
 			taskListSource = AppControler.ConvertListToObservableCollection_Task(AppControler.GetTasksList());
 			pointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
+			dayliToDopointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
 		}
 
 		//Konwersja typów:
@@ -103,6 +105,20 @@ namespace ManagementApp.Controler
 				pointListSource.Add(item);
 			}
 		}
+
+		// TODO: Poprawić dayliToDopointListSourceUpdate funkcje tak by dawała listę właściwych punktów:
+
+		public static void dayliToDopointListSourceUpdate()
+		{
+			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
+			//Inaczej źródło się zmieni i nie będzie widać zmian!
+			ObservableCollection<Point> newPointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
+			dayliToDopointListSource.Clear();
+			foreach (var item in newPointListSource)
+			{
+				dayliToDopointListSource.Add(item);
+			}
+		}
 		/********************************/
 
 		// TODO: Poprawić dodawanie tak by generowany był niepowtażalny klucz własny! Teraz  chyba się nie generuje!
@@ -136,6 +152,7 @@ namespace ManagementApp.Controler
 				context.Point.Add(newPoints);
 				context.SaveChanges();
 			}
+			dayliToDopointListSourceUpdate();
 		}
 		/*************************/
 

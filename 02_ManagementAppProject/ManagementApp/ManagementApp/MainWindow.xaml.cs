@@ -100,7 +100,9 @@ namespace ManagementApp
                 Point_ID = 1,
                 DeadLineDate = date,
                 CompletionDate = date,
-                TaskForToday = true
+                TaskForToday = true,
+                ExecutionStatus = false
+                
             };
             DataBase.Point point2 = new DataBase.Point()
             {
@@ -109,7 +111,8 @@ namespace ManagementApp
                 Point_ID = 2,
                 DeadLineDate = date,
                 CompletionDate = date,
-                TaskForToday = true
+                TaskForToday = true,
+                ExecutionStatus = false
             };
             DataBase.Point point3 = new DataBase.Point()
             {
@@ -118,7 +121,8 @@ namespace ManagementApp
                 Point_ID = 3,
                 DeadLineDate = date,
                 CompletionDate = date,
-                TaskForToday = true
+                TaskForToday = true,
+                ExecutionStatus = false
             };
             DataBase.Point point4 = new DataBase.Point()
             {
@@ -127,7 +131,8 @@ namespace ManagementApp
                 Point_ID = 4,
                 DeadLineDate = date,
                 CompletionDate = date,
-                TaskForToday = true
+                TaskForToday = true,
+                ExecutionStatus = false
             };
 
 
