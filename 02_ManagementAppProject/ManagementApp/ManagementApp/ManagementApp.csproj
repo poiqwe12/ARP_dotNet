@@ -116,9 +116,6 @@
     <Compile Include="Views\MenuView.xaml.cs">
       <DependentUpon>MenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\OptionsForMenuItemWindow.xaml.cs">
-      <DependentUpon>OptionsForMenuItemWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\OptionView.xaml.cs">
       <DependentUpon>OptionView.xaml</DependentUpon>
     </Compile>
@@ -167,10 +164,6 @@
     <Page Include="Views\MenuView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\OptionsForMenuItemWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OptionView.xaml">
       <SubType>Designer</SubType>
