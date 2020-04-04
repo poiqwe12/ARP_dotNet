@@ -9,15 +9,20 @@ using ManagementApp.DataBase;
 
 
 namespace ManagementApp.Controler
-{ 
+{
+	
 
 	static public class AppControler
 	{
+		public const string TaskCollectionType = "TaskCollection";
+		public const string TaskType = "Task";
+		public const string PointType = "Point";
+		public const string NullType = "Null";
 
 		//Dane
 		static public int ActualChosenCollectionInMenu = -1;
 		static public int ActualChosenTaskInMenu = -1;
-		static public string ActualChosenTypeInMenu = "Null";
+		static public string ActualChosenTypeInMenu = NullType;
 
 		static public ObservableCollection<TaskCollection> menuTreeSource;
 		static public ObservableCollection<Task> taskListSource;
@@ -31,7 +36,7 @@ namespace ManagementApp.Controler
 		}
 
 		//Konwersja typów:
-		public static ObservableCollection<TaskCollection> ConvertListToObservableCollection_TaskCollection(List<TaskCollection> taskCollectionsToConvert) 
+		public static ObservableCollection<TaskCollection> ConvertListToObservableCollection_TaskCollection(List<TaskCollection> taskCollectionsToConvert)
 		{
 			ObservableCollection<TaskCollection> newTaskObservableCollections = new ObservableCollection<TaskCollection>();
 			foreach (var item in taskCollectionsToConvert)
@@ -67,7 +72,7 @@ namespace ManagementApp.Controler
 		{
 			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
 			//Inaczej źródło się zmieni i nie będzie widać zmian!
-			ObservableCollection<TaskCollection>  newMenuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
+			ObservableCollection<TaskCollection> newMenuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
 			menuTreeSource.Clear();
 			foreach (var item in newMenuTreeSource)
 			{
@@ -85,8 +90,6 @@ namespace ManagementApp.Controler
 				taskListSource.Add(item);
 			}
 		}
-
-
 		public static void pointListSourceUpdate()
 		{
 			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
@@ -229,6 +232,9 @@ namespace ManagementApp.Controler
 				return findedPoint;
 			}
 		}
+
+
+		// TODO: Poprawić funkcje tak by zwracały właściwe zbiory danych...
 		public static List<TaskCollection> GetCollectionsList()
 		{
 			using (var context = new AppDataBase())

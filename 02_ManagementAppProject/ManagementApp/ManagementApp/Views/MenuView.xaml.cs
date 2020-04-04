@@ -48,18 +48,18 @@ namespace ManagementApp.Views
             if (isMouseEnter) //Zabezpieczenie przed wywołaniem w czasie zmian
             {
 
-                if (TreeViev_Menu.SelectedItem.ToString() == "TaskCollection") // Jeśli nie działą to przez funkcje ToString
+                if (TreeViev_Menu.SelectedItem.ToString() == AppControler.TaskCollectionType) // Jeśli nie działą to przez funkcje ToString
                 {
-                    tekst.Text = "TaskCollection";
-                    AppControler.ActualChosenTypeInMenu = "TaskCollection";
+                    tekst.Text = AppControler.TaskCollectionType;
+                    AppControler.ActualChosenTypeInMenu = AppControler.TaskCollectionType;
                     TaskCollection actualTaskCollection = new TaskCollection();
                     actualTaskCollection = (TaskCollection)TreeViev_Menu.SelectedItem;
                     AppControler.ActualChosenCollectionInMenu = actualTaskCollection.TaskCollection_ID;
                 }
-                else if (TreeViev_Menu.SelectedItem.GetType().ToString() == "Task") // Jeśli nie działą to przez funkcje ToString
+                else if (TreeViev_Menu.SelectedItem.GetType().ToString() == AppControler.TaskType) // Jeśli nie działą to przez funkcje ToString
                 {
-                    tekst.Text = "Task";
-                    AppControler.ActualChosenTypeInMenu = "Task";
+                    tekst.Text = AppControler.TaskType;
+                    AppControler.ActualChosenTypeInMenu = AppControler.TaskType;
                     Task actualTask = new Task();
                     actualTask = (Task)TreeViev_Menu.SelectedItem;
                     AppControler.ActualChosenCollectionInMenu = actualTask.Collection_ID;
@@ -67,8 +67,8 @@ namespace ManagementApp.Views
                 }
                 else
                 {
-                    tekst.Text = "null";
-                    AppControler.ActualChosenTypeInMenu = "null";
+                    tekst.Text = AppControler.NullType;
+                    AppControler.ActualChosenTypeInMenu = AppControler.NullType;
                     AppControler.ActualChosenCollectionInMenu = -1;
                     AppControler.ActualChosenTaskInMenu = -1;
                 }
