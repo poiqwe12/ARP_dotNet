@@ -30,7 +30,7 @@ namespace ManagementApp.Views
         public MenuView()
         {
             InitializeComponent();
-            TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
+            //TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
 
 
@@ -101,7 +101,7 @@ namespace ManagementApp.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
+            //TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
         /******************************/
 

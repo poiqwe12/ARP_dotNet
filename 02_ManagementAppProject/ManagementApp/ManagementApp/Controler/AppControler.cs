@@ -38,7 +38,7 @@ namespace ManagementApp.Controler
 		static public int ActualChosenTaskInMenu = -1;
 		static public string ActualChosenTypeInMenu = NullType;
 
-		static public ObservableCollection<TaskCollection> menuTreeSource;
+
 		static public ObservableCollection<Task> taskListSource;
 		static public ObservableCollection<Point> pointListSource;
 		static public ObservableCollection<Point> dayliToDopointListSource;
@@ -46,10 +46,6 @@ namespace ManagementApp.Controler
 		//Konstruktor statyczny:
 		static AppControler()
 		{
-			menuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
-			taskListSource = AppControler.ConvertListToObservableCollection_Task(AppControler.GetTasksList());
-			pointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
-			dayliToDopointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
 		}
 
 		//Konwersja typów:
@@ -87,14 +83,6 @@ namespace ManagementApp.Controler
 		//Aktualizacja zasobów dla widoku:
 		public static void menuTreeSourceUpdate()
 		{
-			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
-			//Inaczej źródło się zmieni i nie będzie widać zmian!
-			ObservableCollection<TaskCollection> newMenuTreeSource = AppControler.ConvertListToObservableCollection_TaskCollection(AppControler.GetCollectionsList());
-			menuTreeSource.Clear();
-			foreach (var item in newMenuTreeSource)
-			{
-				menuTreeSource.Add(item);
-			}
 		}
 		public static void taskListSourceUpdate()
 		{
@@ -146,7 +134,6 @@ namespace ManagementApp.Controler
 				context.TaskCollection.Add(newCollection);
 				context.SaveChanges();
 			}
-			menuTreeSourceUpdate(); //Aktualizacja menu
 		}
 		public static void AddTask(Task newTask)
 		{
@@ -155,8 +142,6 @@ namespace ManagementApp.Controler
 				context.Task.Add(newTask);
 				context.SaveChanges();
 			}
-			menuTreeSourceUpdate(); //Aktualizacja menu
-			taskListSourceUpdate(); //Aktualizacja menu i listy zadań
 		}
 		public static void AddPoint(Point newPoints)
 		{
@@ -165,7 +150,6 @@ namespace ManagementApp.Controler
 				context.Point.Add(newPoints);
 				context.SaveChanges();
 			}
-			dayliToDopointListSourceUpdate();
 		}
 		/*************************/
 

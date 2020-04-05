@@ -66,7 +66,6 @@ namespace ManagementApp.Views
                     ManagementApp.DataBase.Task newTask = new ManagementApp.DataBase.Task()
                     {
                         Collection_ID = 1,
-                        Task_ID = 1 + DateTime.Now.Millisecond,
                         TaskName = NameTextBox.Text,
                         DeadLine = newDate,
                         Description = DescriptionTextBox.Text
