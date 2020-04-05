@@ -10,6 +10,21 @@ using ManagementApp.DataBase;
 
 namespace ManagementApp.Controler
 {
+
+	// TODO: Zmienić drzewko menu na takie na bazie jednolitej struktury:
+	public class MenuItem
+	{
+		public MenuItem()
+		{
+			this.Items = new ObservableCollection<MenuItem>();
+		}
+
+		public string Title { get; set; }
+
+		public ObservableCollection<MenuItem> Items { get; set; }
+	}
+
+
 	static public class AppControler
 	{
 		//Stałe:

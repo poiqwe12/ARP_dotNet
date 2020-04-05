@@ -34,6 +34,7 @@ namespace ManagementApp.Views
         }
 
 
+        //Kontrola czy mysz jest nad menu:
         private void TreeViev_Menu_MouseEnter(object sender, MouseEventArgs e)
         {
             isMouseEnter = true;
@@ -80,6 +81,7 @@ namespace ManagementApp.Views
 
         }
 
+        //Obsługa zdarzeń z paska zadań:
         private void AddCollectionButton_Click(object sender, RoutedEventArgs e)
         {
             Views.TaskCollectionAddWindow pointAddWindow = new Views.TaskCollectionAddWindow();
@@ -101,12 +103,14 @@ namespace ManagementApp.Views
         {
             TreeViev_Menu.ItemsSource = AppControler.menuTreeSource;
         }
-
+        /******************************/
 
         // TODO: Dodać funkcje do pasków w menu
         // TODO: Okomentować bloki o takiej samej funkcjonalności
         // TODO: Spróbować stworzyć 3 poziomowe drzewko  w menu !!! 
 
+
+        //Obsługa zdarzeń pochodzących od contextMenu:
         private void AddTaskCollectionMenuItem_Click(object sender, RoutedEventArgs e)
         {
             Views.TaskCollectionAddWindow pointAddWindow = new Views.TaskCollectionAddWindow();
@@ -143,6 +147,6 @@ namespace ManagementApp.Views
         {
 
         }
-
+        //*******************************************/
     }
 }

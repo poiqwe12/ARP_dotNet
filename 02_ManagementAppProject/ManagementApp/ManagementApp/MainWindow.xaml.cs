@@ -150,7 +150,7 @@ namespace ManagementApp
         }
         
 
-
+        //Wybór obecnie wyświetlanej funkcjonalności:
         private void ManagementViewButton_Click(object sender, RoutedEventArgs e)
         {
             MiddleFieldView.Source = new Uri("Views/ManagementView.xaml", UriKind.Relative);
@@ -170,5 +170,6 @@ namespace ManagementApp
         {
             MiddleFieldView.Source = new Uri("Views/OptionView.xaml", UriKind.Relative);
         }
+        /*******************************************/
     }
 }
