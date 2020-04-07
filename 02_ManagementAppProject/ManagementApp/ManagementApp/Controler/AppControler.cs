@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Windows.Threading;
+using System.Collections.ObjectModel;
 using ManagementApp.Model;
+
 
 
 
@@ -38,102 +40,70 @@ namespace ManagementApp.Controler
 		public const string NullType = "Null";
 
 		//Dane:
-		static public int ActualChosenCollectionInMenu = -1;
-		static public int ActualChosenTaskInMenu = -1;
+		static public int ActualChosenIdInMenu = -1;
 		static public string ActualChosenTypeInMenu = NullType;
 
-
-		static public ObservableCollection<Task> taskListSource { get; set; }
-		static public ObservableCollection<Point> pointListSource { get; set; }
-		static public ObservableCollection<Point> dayliToDopointListSource { get; set; }
+		static public ObservableCollection<MenuItem> menuTreeSource { get; set; }
+		static public ObservableCollection<Model.Task> taskListSource { get; set; }
+		static public ObservableCollection<Model.Point> pointListSource { get; set; }
+		static public ObservableCollection<Model.Point> dayliToDopointListSource { get; set; }
 
 		//Konstruktor statyczny:
 		static AppControler()
 		{
-			ObservableCollection<Task> taskListSource = new ObservableCollection<Task>();
-			ObservableCollection<Point> pointListSource = new ObservableCollection<Point>();
-			ObservableCollection<Point> dayliToDopointListSource = new ObservableCollection<Point>();
+			menuTreeSource = new ObservableCollection<MenuItem>();
+			taskListSource = new ObservableCollection<Model.Task>();
+			pointListSource = new ObservableCollection<Model.Point>();
+			dayliToDopointListSource = new ObservableCollection<Point>();
 
+			menuTreeSourceUpdate(); //Inicjalizacja menu
 		}
 
-		//Konwersja typów:
-		public static ObservableCollection<TaskCollection> ConvertListToObservableCollection_TaskCollection(List<TaskCollection> taskCollectionsToConvert)
-		{
-			ObservableCollection<TaskCollection> newTaskObservableCollections = new ObservableCollection<TaskCollection>();
-			foreach (var item in taskCollectionsToConvert)
-			{
-				newTaskObservableCollections.Add(item);
-			}
-			return newTaskObservableCollections;
-		}
 
-		public static ObservableCollection<Task> ConvertListToObservableCollection_Task(List<Task> taskToConvert)
-		{
-			ObservableCollection<Task> newTaskObservableCollections = new ObservableCollection<Task>();
-			foreach (var item in taskToConvert)
-			{
-				newTaskObservableCollections.Add(item);
-			}
-			return newTaskObservableCollections;
-		}
-
-		public static ObservableCollection<Point> ConvertListToObservableCollection_Point(List<Point> pointToConvert)
-		{
-			ObservableCollection<Point> newPointObservableCollections = new ObservableCollection<Point>();
-			foreach (var item in pointToConvert)
-			{
-				newPointObservableCollections.Add(item);
-			}
-			return newPointObservableCollections;
-		}
-		/***************/
 
 		//Aktualizacja zasobów dla widoku:
 		public static void menuTreeSourceUpdate()
 		{
+			menuTreeSource.Clear();
+
+			foreach (var item1 in DataBase.GetCollectionsList())
+			{
+				MenuItem newCollectionItem = new MenuItem(item1.Name, TaskCollectionType, item1.Id);
+
+				foreach (var item2 in DataBase.GetTasksList(item1.Id))
+				{
+					MenuItem newTaskItem = new MenuItem(item2.Name, TaskType, item2.Id);
+					
+					foreach (var item3 in DataBase.GetPointsList(item2.Id))
+					{
+						MenuItem newPointItem = new MenuItem(item3.Name, PointType, item3.Id);
+						newTaskItem.Items.Add(newPointItem);
+					}
+					newCollectionItem.Items.Add(newTaskItem);
+				}
+				menuTreeSource.Add(newCollectionItem);
+			}
 		}
+
 		public static void taskListSourceUpdate()
 		{
-			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
-			//Inaczej źródło się zmieni i nie będzie widać zmian!
-			ObservableCollection<Task> newTaskListSource = AppControler.ConvertListToObservableCollection_Task(AppControler.GetTasksList());
-			taskListSource.Clear();
-			foreach (var item in newTaskListSource)
-			{
-				taskListSource.Add(item);
-			}
+
 		}
 		public static void pointListSourceUpdate()
 		{
-			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
-			//Inaczej źródło się zmieni i nie będzie widać zmian!
-			ObservableCollection<Point> newPointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
-			pointListSource.Clear();
-			foreach (var item in newPointListSource)
-			{
-				pointListSource.Add(item);
-			}
+
 		}
 
 		// TODO: Poprawić dayliToDopointListSourceUpdate funkcje tak by dawała listę właściwych punktów:
 
 		public static void dayliToDopointListSourceUpdate()
 		{
-			//Trzeba wyczyścić i przepisać element po elemenci, żeby sama lista pozostała tą samą. 
-			//Inaczej źródło się zmieni i nie będzie widać zmian!
-			ObservableCollection<Point> newPointListSource = AppControler.ConvertListToObservableCollection_Point(AppControler.GetPointsList());
-			dayliToDopointListSource.Clear();
-			foreach (var item in newPointListSource)
-			{
-				dayliToDopointListSource.Add(item);
-			}
+
 		}
 		/********************************/
 
-		// TODO: Poprawić dodawanie tak by generowany był niepowtażalny klucz własny! Teraz  chyba się nie generuje!
 		// TODO: Napisać testy jednostkowe do wszystkich funkcji komunikujących się z bazą danych!
 		// TODO: Wdrożyć obsługę wyjątkuw dla wszystkich funkcji komunikujących się z bazą danych!
-		// TODO: Poprawić funkcje tak by zwracały właściwe zbiory danych...
 
 	}
 

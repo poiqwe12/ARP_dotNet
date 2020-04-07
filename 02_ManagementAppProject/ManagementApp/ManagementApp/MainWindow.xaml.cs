@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using ManagementApp.Controler;
-using ManagementApp.DataBase;
+using ManagementApp.Model;
 
 namespace ManagementApp
 {
@@ -27,127 +27,10 @@ namespace ManagementApp
         {
             InitializeComponent();
             MiddleFieldView.Source = new Uri("Views/ManagementView.xaml", UriKind.Relative);
-            AddDataBaseComponentForTest();
         }
 
         
-        private void AddDataBaseComponentForTest()
-        {
-            TaskCollection taskCollection1 = new TaskCollection()
-            {
-                Name = "Kolekcja do testów",
-                Description = "Jakiś przykładowy opis utworzony na potrzeby testów. Piszę dalej bo musi być długi i najlepiej taki, żeby się zawijał w" +
-                "oknie do tego przeznaczonym."
-            };
-            TaskCollection taskCollection2 = new TaskCollection()
-            {
-                Name = "Kolekcja do testów",
-                Description = "Jakiś przykładowy opis utworzony na potrzeby testów. Piszę dalej bo musi być długi i najlepiej taki, żeby się zawijał w" +
-                "oknie do tego przeznaczonym."
-            };
-            DateTime date = DateTime.Now;
-            date.AddYears(21);
-
-            DataBase.Task task1 = new DataBase.Task()
-            {
-                TaskName = "Nowe zadanie",
-                Task_ID = 1,
-                Collection_ID = 1,
-                DeadLine = date,
-                Completion = date,
-                Description = "Jakiś przykładowy opis utworzony na potrzeby testów. Piszę dalej bo musi być długi i najlepiej taki, żeby się zawijał w" +
-                "oknie do tego przeznaczonym.",
-                Percenttarget = 50
-            };
-            DataBase.Task task2 = new DataBase.Task()
-            {
-                TaskName = "Nowe zadanie",
-                Task_ID = 2,
-                Collection_ID = 1,
-                DeadLine = date,
-                Completion = date,
-                Description = "Jakiś przykładowy opis utworzony na potrzeby testów. Piszę dalej bo musi być długi i najlepiej taki, żeby się zawijał w" +
-                "oknie do tego przeznaczonym.",
-                Percenttarget = 20
-            };
-            DataBase.Task task3 = new DataBase.Task()
-            {
-                TaskName = "Nowe zadanie",
-                Task_ID = 3,
-                Collection_ID = 2,
-                DeadLine = date,
-                Completion = date,
-                Description = "Jakiś przykładowy opis utworzony na potrzeby testów. Piszę dalej bo musi być długi i najlepiej taki, żeby się zawijał w" +
-                "oknie do tego przeznaczonym.",
-                Percenttarget = 40
-            };
-            DataBase.Task task4 = new DataBase.Task()
-            {
-                TaskName = "Nowe zadanie",
-                Task_ID = 4,
-                Collection_ID = 2,
-                DeadLine = date,
-                Completion = date,
-                Description = "Jakiś przykładowy opis utworzony na potrzeby testów. Piszę dalej bo musi być długi i najlepiej taki, żeby się zawijał w" +
-                "oknie do tego przeznaczonym.",
-                Percenttarget = 70
-            };
-
-            DataBase.Point point1 = new DataBase.Point()
-            {
-                Name = "Nowy punkt",
-                Task_ID = 1,
-                Point_ID = 1,
-                DeadLineDate = date,
-                CompletionDate = date,
-                TaskForToday = true,
-                ExecutionStatus = false
-                
-            };
-            DataBase.Point point2 = new DataBase.Point()
-            {
-                Name = "Nowy punkt",
-                Task_ID = 2,
-                Point_ID = 2,
-                DeadLineDate = date,
-                CompletionDate = date,
-                TaskForToday = true,
-                ExecutionStatus = false
-            };
-            DataBase.Point point3 = new DataBase.Point()
-            {
-                Name = "Nowy punkt",
-                Task_ID = 3,
-                Point_ID = 3,
-                DeadLineDate = date,
-                CompletionDate = date,
-                TaskForToday = true,
-                ExecutionStatus = false
-            };
-            DataBase.Point point4 = new DataBase.Point()
-            {
-                Name = "Nowy punkt",
-                Task_ID = 4,
-                Point_ID = 4,
-                DeadLineDate = date,
-                CompletionDate = date,
-                TaskForToday = true,
-                ExecutionStatus = false
-            };
-
-
-            AppControler.AddCollection(taskCollection1);
-            AppControler.AddCollection(taskCollection1);
-            AppControler.AddTask(task1);
-            AppControler.AddTask(task2);
-            AppControler.AddTask(task3);
-            AppControler.AddTask(task4);
-            AppControler.AddPoint(point1);
-            AppControler.AddPoint(point2);
-            AppControler.AddPoint(point3);
-            AppControler.AddPoint(point4);
-
-        }
+        
         
 
         //Wybór obecnie wyświetlanej funkcjonalności:

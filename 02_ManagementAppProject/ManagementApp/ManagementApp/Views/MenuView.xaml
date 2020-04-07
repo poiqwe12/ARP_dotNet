@@ -4,7 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ManagementApp.Views"
-      xmlns:self="clr-namespace:ManagementApp.DataBase"
+      xmlns:model="clr-namespace:ManagementApp.Model"
+      xmlns:controler="clr-namespace:ManagementApp.Controler"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="200"
       Title="MenuView">
@@ -117,7 +118,21 @@
                                FontSize="12" Foreground="White"></TextBlock>
                         </WrapPanel>
                     </Button>
-                    
+
+                    <TreeView Name="TreeViewMenu"
+                              Background="Transparent"
+                              BorderThickness="0"
+                              ItemContainerStyle="{StaticResource TreeItemStyle}"
+                              SelectedItemChanged="TreeViewMenu_SelectedItemChanged">
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate DataType="{x:Type controler:MenuItem}" ItemsSource="{Binding Items}">
+                                <TextBlock Text="{Binding Name}"/>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+
+
+                    <!--   
                     <TreeView Name="TreeViev_Menu"
                           Background="Transparent"
                           BorderThickness="0"
@@ -201,6 +216,8 @@
                         </DataTemplate>
                     </TreeView.Resources>
                 </TreeView>
+                    
+                    -->
                 </DockPanel>
             </ScrollViewer>
 

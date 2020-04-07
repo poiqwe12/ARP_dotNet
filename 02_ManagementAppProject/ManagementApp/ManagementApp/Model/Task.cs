@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManagementApp.Model
 {
-    class Task
+    public class Task
     {
         public int Id { get; set; }
         public int TaskCollectionId { get; set; }

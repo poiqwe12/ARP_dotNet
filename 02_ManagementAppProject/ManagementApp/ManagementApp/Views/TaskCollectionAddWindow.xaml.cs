@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using ManagementApp.DataBase;
+using ManagementApp.Model;
 using ManagementApp.Controler;
 
 namespace ManagementApp.Views
@@ -44,7 +44,8 @@ namespace ManagementApp.Views
                     Description = DescriptionTextBox.Text
                 };
 
-                AppControler.AddCollection(newTaskCollection);
+                DataBase.AddCollection(newTaskCollection);
+                AppControler.menuTreeSourceUpdate();
                 this.Close();
             }
         }

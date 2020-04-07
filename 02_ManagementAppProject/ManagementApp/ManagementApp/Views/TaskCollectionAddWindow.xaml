@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ManagementApp.Views"
-        xmlns:self="clr-namespace:ManagementApp.DataBase"
+        xmlns:self="clr-namespace:ManagementApp.Model"
         mc:Ignorable="d"
         Title="Dodaj zbiór zadań" Height="220" Width="300"
         WindowStartupLocation="CenterScreen"

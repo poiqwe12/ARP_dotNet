@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ManagementApp.Model
 {
-    class Point
+    public class Point
     {
 
         public int Id { get; set; }

@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 using ManagementApp.Controler;
-using ManagementApp.DataBase;
+using ManagementApp.Model;
 
 namespace ManagementApp.Views
 {
@@ -63,15 +63,16 @@ namespace ManagementApp.Views
                 else
                 {
                     //Jeśli wszystko poszło dobrze to wysyłamy
-                    ManagementApp.DataBase.Point newPoint = new ManagementApp.DataBase.Point()
+                    ManagementApp.Model.Point newPoint = new ManagementApp.Model.Point()
                     {
-                        Task_ID = 1,   //<<<<<------------zaktualizować indeks !!!!
+                        TaskId = 42,   //<<<<<------------zaktualizować indeks !!!!
                         Name = NameTextBox.Text,
                         DeadLineDate = newDate,
                         ExecutionStatus = false
                     };
 
-                    AppControler.AddPoint(newPoint);
+                    DataBase.AddPoint(newPoint);
+                    AppControler.menuTreeSourceUpdate();
                     this.Close();
                 }
             }

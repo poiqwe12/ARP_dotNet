@@ -14,7 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 using ManagementApp.Controler;
-using ManagementApp.DataBase;
+using ManagementApp.Model;
 
 namespace ManagementApp.Views
 {

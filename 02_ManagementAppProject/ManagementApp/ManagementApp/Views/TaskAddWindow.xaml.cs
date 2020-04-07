@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using ManagementApp.DataBase;
+using ManagementApp.Model;
 using ManagementApp.Controler;
 
 namespace ManagementApp.Views
@@ -63,15 +63,16 @@ namespace ManagementApp.Views
                  else
                  {
                     //Jeśli wszystko poszło dobrze to wysyłamy
-                    ManagementApp.DataBase.Task newTask = new ManagementApp.DataBase.Task()
+                    ManagementApp.Model.Task newTask = new ManagementApp.Model.Task()
                     {
-                        Collection_ID = 1,
-                        TaskName = NameTextBox.Text,
-                        DeadLine = newDate,
+                        TaskCollectionId = 47,  
+                        Name = NameTextBox.Text,
+                        DeadLineDate = newDate,
                         Description = DescriptionTextBox.Text
                     };
 
-                    AppControler.AddTask(newTask);
+                    DataBase.AddTask(newTask);
+                    AppControler.menuTreeSourceUpdate();
                     this.Close();
                 }
 

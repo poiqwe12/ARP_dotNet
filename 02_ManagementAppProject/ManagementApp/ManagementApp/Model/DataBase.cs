@@ -7,13 +7,13 @@ using System.Data.Entity;
 
 namespace ManagementApp.Model
 {
-	class DBContext : DbContext
+	public class DBContext : DbContext
 	{
 		public DbSet<Point> Points { get; set; }
 		public DbSet<Task> Tasks { get; set; }
 		public DbSet<TaskCollection> TaskCollections { get; set; }
 	}
-	static class DataBase 
+	static public class DataBase 
 	{
 
 		//Dodawanie do bazy danych:
