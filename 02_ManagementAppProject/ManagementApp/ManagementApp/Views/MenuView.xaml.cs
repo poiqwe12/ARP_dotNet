@@ -92,6 +92,72 @@ namespace ManagementApp.Views
             Views.TaskAddWindow pointAddWindow = new Views.TaskAddWindow();
             pointAddWindow.Show();
         }
+
+        private void TreeContextMenu_Opened(object sender, RoutedEventArgs e)
+        {
+            ContextMenu contextMenu = (ContextMenu)sender;
+            contextMenu.Items.Clear();
+
+            System.Windows.Controls.MenuItem newAddMenuItem = new System.Windows.Controls.MenuItem();
+            System.Windows.Controls.MenuItem newDeleteMenuItem = new System.Windows.Controls.MenuItem();
+            System.Windows.Controls.MenuItem newEditMenuItem = new System.Windows.Controls.MenuItem();
+
+            newAddMenuItem.Name = "AddMenuItem";
+            newAddMenuItem.Click += AddMenuItem_Click;
+
+            newDeleteMenuItem.Name = "DeleteMenuItem";
+            newDeleteMenuItem.Click += DeleteMenuItem_Click;
+
+            newEditMenuItem.Name = "EditMenuItem";
+            newEditMenuItem.Click += EditMenuItem_Click;
+
+            if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+            {
+                newAddMenuItem.Header = "Dodaj zadanie";
+                newDeleteMenuItem.Header = "Usuń kolekcje";
+                newEditMenuItem.Header = "Edytuj kolekcje";
+
+                contextMenu.Items.Add(newAddMenuItem);
+                contextMenu.Items.Add(newDeleteMenuItem);
+                contextMenu.Items.Add(newEditMenuItem);
+
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
+            {
+                newAddMenuItem.Header = "Dodaj punkt";
+                newDeleteMenuItem.Header = "Usuń zadanie";
+                newEditMenuItem.Header = "Edytuj zadanie";
+
+                contextMenu.Items.Add(newAddMenuItem);
+                contextMenu.Items.Add(newDeleteMenuItem);
+                contextMenu.Items.Add(newEditMenuItem);
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.PointType)
+            {
+                newDeleteMenuItem.Header = "Usuń punkt";
+                newEditMenuItem.Header = "Edytuj punkt";
+
+                contextMenu.Items.Add(newDeleteMenuItem);
+                contextMenu.Items.Add(newEditMenuItem);
+            }
+        }
+
+
+
+        private void AddMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void DeleteMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void EditMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
         //*******************************************/
     }
 }

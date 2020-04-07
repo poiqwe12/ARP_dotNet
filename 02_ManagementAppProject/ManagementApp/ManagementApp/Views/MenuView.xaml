@@ -38,6 +38,14 @@
             </Style.Triggers>
         </Style>
 
+        
+        
+        <Style x:Key="MenuItemStyle" TargetType="MenuItem">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#262626"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
 
     </Page.Resources>
     
@@ -126,7 +134,16 @@
                               SelectedItemChanged="TreeViewMenu_SelectedItemChanged">
                         <TreeView.ItemTemplate>
                             <HierarchicalDataTemplate DataType="{x:Type controler:MenuItem}" ItemsSource="{Binding Items}">
-                                <TextBlock Text="{Binding Name}"/>
+                                <WrapPanel>
+                                    <WrapPanel.ContextMenu >
+                                        <ContextMenu Name="TreeContextMenu"
+                                                     BorderThickness="0"           
+                                                     Opened="TreeContextMenu_Opened">
+                                                     <!--Background="#262626"-->
+                                        </ContextMenu>
+                                    </WrapPanel.ContextMenu>
+                                    <TextBlock Text="{Binding Name}"/>
+                                </WrapPanel>
                             </HierarchicalDataTemplate>
                         </TreeView.ItemTemplate>
                     </TreeView>
