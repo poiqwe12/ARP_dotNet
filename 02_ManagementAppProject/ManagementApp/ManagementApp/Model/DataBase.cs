@@ -91,7 +91,6 @@ namespace ManagementApp.Model
 			using (var context = new DBContext())
 			{
 				var findedTask = context.Tasks.Where(s => s.Id == task_ID).FirstOrDefault<Task>();
-				findedTask.Id = newTask.Id;
 				findedTask.Name = newTask.Name;
 				findedTask.CompletionDate = newTask.CompletionDate;
 				findedTask.DeadLineDate = newTask.DeadLineDate;
@@ -105,7 +104,6 @@ namespace ManagementApp.Model
 			using (var context = new DBContext())
 			{
 				var findedPoint = context.Points.Where(s => s.Id == point_ID).FirstOrDefault<Point>();
-				findedPoint.Id = newPoint.Id;
 				findedPoint.Name = newPoint.Name;
 				findedPoint.CompletionDate = newPoint.CompletionDate;
 				findedPoint.DeadLineDate = newPoint.DeadLineDate;

@@ -19,11 +19,18 @@ namespace ManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy TaskCollectionAddWindow.xaml
     /// </summary>
-    public partial class TaskCollectionAddWindow : Window
+    public partial class TaskCollectionEditWindow : Window
     {
-        public TaskCollectionAddWindow()
+        private readonly int taskCollection_Id;
+        public TaskCollectionEditWindow(int taskCollection_Id)
         {
             InitializeComponent();
+            this.taskCollection_Id = taskCollection_Id;
+            Model.TaskCollection editTaskCollection = DataBase.GetTaskCollection(taskCollection_Id);
+
+            NameTextBox.Text = editTaskCollection.Name;
+            DescriptionTextBox.Text = editTaskCollection.Description;
+
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -44,7 +51,7 @@ namespace ManagementApp.Views
                     Description = DescriptionTextBox.Text
                 };
 
-                DataBase.AddCollection(newTaskCollection);
+                DataBase.ChangeCollectionProperties(taskCollection_Id, newTaskCollection);
                 AppControler.MenuTreeSourceUpdate();
                 this.Close();
             }

@@ -27,7 +27,7 @@ namespace ManagementApp.Views
         {
 
             InitializeComponent();
-            ListView_TasksList.ItemsSource = AppControler.taskListSource;
+            ListView_TasksList.ItemsSource = AppControler.TaskListSource;
         }
 
 

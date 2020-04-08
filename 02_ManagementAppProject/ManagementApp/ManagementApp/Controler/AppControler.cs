@@ -43,28 +43,28 @@ namespace ManagementApp.Controler
 		static public int ActualChosenIdInMenu = -1;
 		static public string ActualChosenTypeInMenu = NullType;
 
-		static public ObservableCollection<MenuItem> menuTreeSource { get; set; }
-		static public ObservableCollection<Model.Task> taskListSource { get; set; }
-		static public ObservableCollection<Model.Point> pointListSource { get; set; }
-		static public ObservableCollection<Model.Point> dayliToDopointListSource { get; set; }
+		static public ObservableCollection<MenuItem> MenuTreeSource { get; set; }
+		static public ObservableCollection<Model.Task> TaskListSource { get; set; }
+		static public ObservableCollection<Model.Point> PointListSource { get; set; }
+		static public ObservableCollection<Model.Point> DayliToDopointListSource { get; set; }
 
 		//Konstruktor statyczny:
 		static AppControler()
 		{
-			menuTreeSource = new ObservableCollection<MenuItem>();
-			taskListSource = new ObservableCollection<Model.Task>();
-			pointListSource = new ObservableCollection<Model.Point>();
-			dayliToDopointListSource = new ObservableCollection<Point>();
+			MenuTreeSource = new ObservableCollection<MenuItem>();
+			TaskListSource = new ObservableCollection<Model.Task>();
+			PointListSource = new ObservableCollection<Model.Point>();
+			DayliToDopointListSource = new ObservableCollection<Point>();
 
-			menuTreeSourceUpdate(); //Inicjalizacja menu
+			MenuTreeSourceUpdate(); //Inicjalizacja menu
 		}
 
 
 
 		//Aktualizacja zasobów dla widoku:
-		public static void menuTreeSourceUpdate()
+		public static void MenuTreeSourceUpdate()
 		{
-			menuTreeSource.Clear();
+			MenuTreeSource.Clear();
 
 			foreach (var item1 in DataBase.GetCollectionsList())
 			{
@@ -81,22 +81,22 @@ namespace ManagementApp.Controler
 					}
 					newCollectionItem.Items.Add(newTaskItem);
 				}
-				menuTreeSource.Add(newCollectionItem);
+				MenuTreeSource.Add(newCollectionItem);
 			}
 		}
 
-		public static void taskListSourceUpdate()
+		public static void TaskListSourceUpdate()
 		{
 
 		}
-		public static void pointListSourceUpdate()
+		public static void PointListSourceUpdate()
 		{
 
 		}
 
 		// TODO: Poprawić dayliToDopointListSourceUpdate funkcje tak by dawała listę właściwych punktów:
 
-		public static void dayliToDopointListSourceUpdate()
+		public static void DayliToDopointListSourceUpdate()
 		{
 
 		}

@@ -29,7 +29,7 @@ namespace ManagementApp.Views
             DateTime date = DateTime.Now;
             Haeder.Text = "TO DO (" + date.ToShortDateString() + ")";
 
-            DayliToDoList.ItemsSource = AppControler.dayliToDopointListSource;
+            DayliToDoList.ItemsSource = AppControler.DayliToDopointListSource;
 
         }
 

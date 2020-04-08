@@ -30,13 +30,13 @@ namespace ManagementApp.Views
 
             //DispatcherTimer start
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_ListUpdate);
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_ListUpdate);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Start();
         }
 
         //Cykliczne przerwanie odświeżające okno z listami:
-        private void dispatcherTimer_ListUpdate(object sender, EventArgs e)
+        private void DispatcherTimer_ListUpdate(object sender, EventArgs e)
         {
             TaskListToRender.Visibility = Visibility.Hidden;
             PoinListToRender.Visibility = Visibility.Hidden;

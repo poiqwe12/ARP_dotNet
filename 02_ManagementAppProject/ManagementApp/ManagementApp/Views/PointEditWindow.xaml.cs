@@ -12,28 +12,36 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using ManagementApp.Model;
 using ManagementApp.Controler;
+using ManagementApp.Model;
 
 namespace ManagementApp.Views
 {
     /// <summary>
-    /// Logika interakcji dla klasy TaskAddWindow.xaml
+    /// Logika interakcji dla klasy Window1.xaml
     /// </summary>
-    public partial class TaskAddWindow : Window
+    public partial class PointEditWindow : Window
     {
-        private readonly int taskCollection_Id;
-        public TaskAddWindow(int taskCollection_Id)
+        private readonly int point_Id;
+        public PointEditWindow(int point_Id)
         {
-            this.taskCollection_Id =taskCollection_Id;
             InitializeComponent();
+            this.point_Id = point_Id;
+
+            Model.Point editPoint = DataBase.GetPoint(point_Id);
+
+            NameTextBox.Text = editPoint.Name;
+            DayTextBox.Text = editPoint.DeadLineDate.Value.Day.ToString();
+            MonthTextBox.Text = editPoint.DeadLineDate.Value.Month.ToString();
+            YearTextBox.Text = editPoint.DeadLineDate.Value.Year.ToString();
+
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             DateTime newDate;
             DateTime actulaData = DateTime.Now;
@@ -51,33 +59,33 @@ namespace ManagementApp.Views
                 //Sprawdzenie poprawności wprowadzonej daty:
                 try
                 {
-                    newDate = new DateTime(Convert.ToInt32(YearTextBox.Text)+2000, Convert.ToInt32(MonthTextBox.Text), Convert.ToInt32(DayTextBox.Text));
+                    newDate = new DateTime(Convert.ToInt32(YearTextBox.Text) + 2000, Convert.ToInt32(MonthTextBox.Text), Convert.ToInt32(DayTextBox.Text));
                 }
                 catch (Exception)
                 {
                     InformationText.Text = "Proszę popraw datę.";
                     return;
                 }
-                 if (newDate < actulaData)
-                 {
-                    InformationText.Text = "Chcesz się cofnąć w czasie?" ;
-                 }
-                 else
-                 {
+                if (newDate < actulaData)
+                {
+                    InformationText.Text = "Chcesz się cofnąć w czasie?";
+                }
+                else
+                {
                     //Jeśli wszystko poszło dobrze to wysyłamy
-                    ManagementApp.Model.Task newTask = new ManagementApp.Model.Task()
+                    Model.Point editPoint = DataBase.GetPoint(point_Id);
+                    ManagementApp.Model.Point newPoint = new ManagementApp.Model.Point()
                     {
-                        TaskCollectionId = taskCollection_Id,
+                        TaskId = editPoint.TaskId,
                         Name = NameTextBox.Text,
                         DeadLineDate = newDate,
-                        Description = DescriptionTextBox.Text
+                        ExecutionStatus = false
                     };
 
-                    DataBase.AddTask(newTask);
+                    DataBase.ChangePointProperties(point_Id, newPoint);
                     AppControler.MenuTreeSourceUpdate();
                     this.Close();
                 }
-
             }
 
         }

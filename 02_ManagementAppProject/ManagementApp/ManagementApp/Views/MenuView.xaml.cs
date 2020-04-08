@@ -20,13 +20,13 @@ namespace ManagementApp.Views
 {
     public partial class MenuView : Page 
     {
-
         public MenuView()
         {
             InitializeComponent();
-            TreeViewMenu.ItemsSource = AppControler.menuTreeSource;
+            TreeViewMenu.ItemsSource = AppControler.MenuTreeSource;
         }
 
+        /*
         //Obsługa zdarzeń z paska zadań:
         private void AddCollectionButton_Click(object sender, RoutedEventArgs e)
         {
@@ -36,6 +36,7 @@ namespace ManagementApp.Views
 
         private void AddTaskButton_Click(object sender, RoutedEventArgs e)
         {
+            
             Views.TaskAddWindow pointAddWindow = new Views.TaskAddWindow();
             pointAddWindow.Show();
         }
@@ -54,28 +55,31 @@ namespace ManagementApp.Views
         //Określenie typu i Id wybranego z menu elementu
         private void TreeViewMenu_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            Controler.MenuItem selectedItem = (Controler.MenuItem)TreeViewMenu.SelectedItem;
-            AppControler.ActualChosenTypeInMenu = selectedItem.Type;
-            AppControler.ActualChosenIdInMenu = selectedItem.Id;
-
-            if (selectedItem.Type == AppControler.TaskCollectionType)
+                Controler.MenuItem selectedItem = (Controler.MenuItem)TreeViewMenu.SelectedItem;
+            if (selectedItem != null)
             {
+                AppControler.ActualChosenTypeInMenu = selectedItem.Type;
+                AppControler.ActualChosenIdInMenu = selectedItem.Id;
+
+                if (selectedItem.Type == AppControler.TaskCollectionType)
+                {
                     tekst.Text = AppControler.TaskCollectionType; // Tylko do testów
 
-            }
-            else if (selectedItem.Type == AppControler.TaskType) 
-            {
-                tekst.Text = AppControler.TaskType; // Tylko do testów
-            }
-            else if (selectedItem.Type == AppControler.PointType)
-            {
-                tekst.Text = AppControler.PointType; // Tylko do testów
-            }
-            else
-            {
+                }
+                else if (selectedItem.Type == AppControler.TaskType)
+                {
+                    tekst.Text = AppControler.TaskType; // Tylko do testów
+                }
+                else if (selectedItem.Type == AppControler.PointType)
+                {
+                    tekst.Text = AppControler.PointType; // Tylko do testów
+                }
+                else
+                {
                     tekst.Text = AppControler.NullType;
                     AppControler.ActualChosenTypeInMenu = AppControler.NullType;
                     AppControler.ActualChosenIdInMenu = -1;
+                }
             }
         }
         //*********************************************/
@@ -84,13 +88,8 @@ namespace ManagementApp.Views
         //Obsługa zdarzeń pochodzących od contextMenu:
         private void AddTaskCollectionMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            Views.TaskCollectionAddWindow pointAddWindow = new Views.TaskCollectionAddWindow();
-            pointAddWindow.Show();
-        }
-        private void AddTaskMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Views.TaskAddWindow pointAddWindow = new Views.TaskAddWindow();
-            pointAddWindow.Show();
+            Views.TaskCollectionAddWindow taskCollectionAddWindow = new Views.TaskCollectionAddWindow();
+            taskCollectionAddWindow.Show();
         }
 
         private void TreeContextMenu_Opened(object sender, RoutedEventArgs e)
@@ -142,22 +141,58 @@ namespace ManagementApp.Views
             }
         }
 
-
-
         private void AddMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+            {
+                Views.TaskAddWindow taskAddWindow = new Views.TaskAddWindow(AppControler.ActualChosenIdInMenu);
+                taskAddWindow.Show();
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
+            {
+                Views.PointAddWindow pointAddWindow = new Views.PointAddWindow(AppControler.ActualChosenIdInMenu);
+                pointAddWindow.Show();
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.PointType)
+            {
+                return;
+            }
         }
         private void DeleteMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+            {
+                DataBase.DeleteCollection(AppControler.ActualChosenIdInMenu);
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
+            {
+                DataBase.DeleteTask(AppControler.ActualChosenIdInMenu);
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.PointType)
+            {
+                DataBase.DeletePoint(AppControler.ActualChosenIdInMenu);
+            }
+            AppControler.MenuTreeSourceUpdate();
         }
         private void EditMenuItem_Click(object sender, RoutedEventArgs e)
         {
-
+            if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+            {
+                Views.TaskCollectionEditWindow taskCollectionEditWindow = new Views.TaskCollectionEditWindow(AppControler.ActualChosenIdInMenu);
+                taskCollectionEditWindow.Show();
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
+            {
+                Views.TaskEditWindow taskEditWindow = new Views.TaskEditWindow(AppControler.ActualChosenIdInMenu);
+                taskEditWindow.Show();
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.PointType)
+            {
+                Views.PointEditWindow pointEditWindow = new Views.PointEditWindow(AppControler.ActualChosenIdInMenu);
+                pointEditWindow.Show();
+            }
+            AppControler.MenuTreeSourceUpdate();
         }
-
-
         //*******************************************/
     }
 }

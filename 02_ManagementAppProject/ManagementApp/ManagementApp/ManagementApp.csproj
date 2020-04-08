@@ -99,11 +99,20 @@
     <Compile Include="Views\OptionView.xaml.cs">
       <DependentUpon>OptionView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PointEditWindow.xaml.cs">
+      <DependentUpon>PointEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PointListView.xaml.cs">
       <DependentUpon>PointListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskCollectionEditWindow.xaml.cs">
+      <DependentUpon>TaskCollectionEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskEditWindow.xaml.cs">
+      <DependentUpon>TaskEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TaskAddWindow.xaml.cs">
       <DependentUpon>TaskAddWindow.xaml</DependentUpon>
@@ -149,6 +158,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PointEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\PointListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +169,14 @@
     <Page Include="Views\StatisticsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaskCollectionEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TaskEditWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\TaskAddWindow.xaml">
       <SubType>Designer</SubType>

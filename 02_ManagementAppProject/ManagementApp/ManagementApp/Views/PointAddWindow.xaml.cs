@@ -22,9 +22,11 @@ namespace ManagementApp.Views
     /// </summary>
     public partial class PointAddWindow : Window
     {
-        public PointAddWindow()
+        private readonly int task_Id;
+        public PointAddWindow(int task_Id)
         {
             InitializeComponent();
+            this.task_Id = task_Id;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -65,14 +67,14 @@ namespace ManagementApp.Views
                     //Jeśli wszystko poszło dobrze to wysyłamy
                     ManagementApp.Model.Point newPoint = new ManagementApp.Model.Point()
                     {
-                        TaskId = 42,   //<<<<<------------zaktualizować indeks !!!!
+                        TaskId = task_Id,
                         Name = NameTextBox.Text,
                         DeadLineDate = newDate,
                         ExecutionStatus = false
                     };
 
                     DataBase.AddPoint(newPoint);
-                    AppControler.menuTreeSourceUpdate();
+                    AppControler.MenuTreeSourceUpdate();
                     this.Close();
                 }
             }

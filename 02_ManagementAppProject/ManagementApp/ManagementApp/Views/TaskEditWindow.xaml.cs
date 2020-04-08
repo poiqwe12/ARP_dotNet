@@ -20,13 +20,21 @@ namespace ManagementApp.Views
     /// <summary>
     /// Logika interakcji dla klasy TaskAddWindow.xaml
     /// </summary>
-    public partial class TaskAddWindow : Window
+    public partial class TaskEditWindow : Window
     {
-        private readonly int taskCollection_Id;
-        public TaskAddWindow(int taskCollection_Id)
+        private readonly int task_Id;
+        public TaskEditWindow(int task_Id)
         {
-            this.taskCollection_Id =taskCollection_Id;
+            this.task_Id =task_Id;
             InitializeComponent();
+
+            Model.Task editTask = DataBase.GetTask(task_Id);
+
+            NameTextBox.Text = editTask.Name;
+            DayTextBox.Text = editTask.DeadLineDate.Value.Day.ToString();
+            MonthTextBox.Text = editTask.DeadLineDate.Value.Month.ToString();
+            YearTextBox.Text = editTask.DeadLineDate.Value.Year.ToString();
+            DescriptionTextBox.Text = editTask.Description;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -65,15 +73,16 @@ namespace ManagementApp.Views
                  else
                  {
                     //Jeśli wszystko poszło dobrze to wysyłamy
+                    Model.Task editTask = DataBase.GetTask(task_Id);
                     ManagementApp.Model.Task newTask = new ManagementApp.Model.Task()
                     {
-                        TaskCollectionId = taskCollection_Id,
+                        TaskCollectionId = editTask.TaskCollectionId,
                         Name = NameTextBox.Text,
                         DeadLineDate = newDate,
                         Description = DescriptionTextBox.Text
                     };
 
-                    DataBase.AddTask(newTask);
+                    DataBase.ChangeTaskProperties(task_Id, newTask);
                     AppControler.MenuTreeSourceUpdate();
                     this.Close();
                 }
