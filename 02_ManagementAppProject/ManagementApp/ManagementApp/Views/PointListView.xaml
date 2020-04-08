@@ -51,7 +51,17 @@
 
     <Grid>
         <DockPanel>
-
+            
+            <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+            <Label DockPanel.Dock="Top"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Stretch"
+                   FontWeight="Bold"
+                   Background="LightGray">
+                #(Nazwa zadania)
+            </Label>
+            <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+            
             <ListView x:Name="ListView_PointsList" ItemContainerStyle="{StaticResource ListStyle}"
                       DockPanel.Dock="Top"
                       Background="#f2f2f2">
@@ -88,8 +98,23 @@
             </ListView.View>
         </ListView>
 
-            <TextBlock x:Name="Description"></TextBlock>
-            
+
+           
+            <Label DockPanel.Dock="Bottom"
+                       x:Name="Description"
+                       VerticalAlignment="Bottom"
+                       Height="100"> 
+                Opis:
+            </Label>
+            <Rectangle DockPanel.Dock="Bottom"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+            <Label DockPanel.Dock="Bottom"
+                   VerticalAlignment="Bottom"
+                   FontWeight="Bold"
+                   Background="LightGray">
+                Opis aktualnie wybranego zadania:
+            </Label>
+            <Rectangle DockPanel.Dock="Bottom"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+
         </DockPanel>
     </Grid>
 </Page>

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Windows.Threading;
 using ManagementApp.Controler;
 using ManagementApp.Model;
 
@@ -28,7 +28,21 @@ namespace ManagementApp.Views
             InitializeComponent();
 
             ListView_PointsList.ItemsSource = AppControler.PointListSource;
+
+
+            //DispatcherTimer start
+            DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_ListUpdate);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            dispatcherTimer.Start();
+
         }
+
+        private void DispatcherTimer_ListUpdate(object sender, EventArgs e)
+        {
+            Description.Content = AppControler.ActualDescriptionSource;
+        }
+
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {

@@ -44,7 +44,20 @@
     </Page.Resources>
 
     <Grid>
-        <ListView x:Name="ListView_TasksList" ItemContainerStyle="{StaticResource ListStyle}"  Background="#f2f2f2">
+        <DockPanel>
+
+            <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+            <Label DockPanel.Dock="Top"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Stretch"
+                   FontWeight="Bold"
+                   Background="LightGray">
+                #(Nazwa kolekcji)
+            </Label>
+            <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+
+            <ListView DockPanel.Dock="Top"
+                  x:Name="ListView_TasksList" ItemContainerStyle="{StaticResource ListStyle}"  Background="#f2f2f2">
 
             <ListView.View>
                 <!-- Definicja kolumn i nagłówków -->
@@ -68,5 +81,22 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+            <Label DockPanel.Dock="Bottom"
+                       x:Name="Description"
+                       VerticalAlignment="Bottom"
+                       Height="100">
+                Opis:
+            </Label>
+            <Rectangle DockPanel.Dock="Bottom"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+            <Label DockPanel.Dock="Bottom"
+                   VerticalAlignment="Bottom"
+                   FontWeight="Bold"
+                   Background="LightGray">
+                Opis aktualnie wybranej kolekcji:
+            </Label>
+            <Rectangle DockPanel.Dock="Bottom"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
+
+        </DockPanel>
     </Grid>
 </Page>

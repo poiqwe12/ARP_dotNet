@@ -43,6 +43,8 @@ namespace ManagementApp.Controler
 		static public int ActualChosenIdInMenu = -1;
 		static public string ActualChosenTypeInMenu = NullType;
 
+		static public string ActualDescriptionSource { get; set; }
+
 		static public ObservableCollection<MenuItem> MenuTreeSource { get; set; }
 		static public ObservableCollection<Model.Task> TaskListSource { get; set; }
 		static public ObservableCollection<Model.Point> PointListSource { get; set; }
@@ -55,6 +57,7 @@ namespace ManagementApp.Controler
 			TaskListSource = new ObservableCollection<Model.Task>();
 			PointListSource = new ObservableCollection<Model.Point>();
 			DayliToDopointListSource = new ObservableCollection<Point>();
+			ActualDescriptionSource = "Opis:";
 
 			UpDateAllSource();
 		}
@@ -71,6 +74,7 @@ namespace ManagementApp.Controler
 		{
 			TaskListSourceUpdate();
 			PointListSourceUpdate();
+			ActualDescriptionSourceUpdate();
 		}
 
 
@@ -97,7 +101,6 @@ namespace ManagementApp.Controler
 				MenuTreeSource.Add(newCollectionItem);
 			}
 		}
-
 
 		public static void TaskListSourceUpdate()
 		{
@@ -129,6 +132,26 @@ namespace ManagementApp.Controler
 				{
 					PointListSource.Add(item);
 				}
+			}
+		}
+
+		public static void ActualDescriptionSourceUpdate()
+		{
+			if (ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+			{
+				TaskCollection taskCollection = DataBase.GetTaskCollection(AppControler.ActualChosenIdInMenu);
+				ActualDescriptionSource = taskCollection.Description;
+			}
+			else if (AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
+			{
+				Model.Task task = DataBase.GetTask(AppControler.ActualChosenIdInMenu);
+				ActualDescriptionSource = task.Description;
+			}
+			else if (ActualChosenTypeInMenu == AppControler.PointType)
+			{
+				Model.Point temporaryPoint = DataBase.GetPoint(ActualChosenIdInMenu);
+				Model.Task task = DataBase.GetTask(temporaryPoint.TaskId);
+				ActualDescriptionSource = task.Description;
 			}
 		}
 

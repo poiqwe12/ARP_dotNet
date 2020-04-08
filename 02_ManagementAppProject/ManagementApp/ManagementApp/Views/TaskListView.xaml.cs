@@ -13,7 +13,7 @@ using System.Windows.Shapes;
 
 using ManagementApp.Model;
 using ManagementApp.Controler;
-
+using System.Windows.Threading;
 
 namespace ManagementApp.Views
 {
@@ -28,6 +28,18 @@ namespace ManagementApp.Views
 
             InitializeComponent();
             ListView_TasksList.ItemsSource = AppControler.TaskListSource;
+
+            //DispatcherTimer start
+            DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_ListUpdate);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 100);
+            dispatcherTimer.Start();
+
+        }
+
+        private void DispatcherTimer_ListUpdate(object sender, EventArgs e)
+        {
+            Description.Content = AppControler.ActualDescriptionSource;
         }
 
 
