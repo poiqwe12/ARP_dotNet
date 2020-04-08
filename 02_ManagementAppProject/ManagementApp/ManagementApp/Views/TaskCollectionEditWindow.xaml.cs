@@ -52,7 +52,7 @@ namespace ManagementApp.Views
                 };
 
                 DataBase.ChangeCollectionProperties(taskCollection_Id, newTaskCollection);
-                AppControler.MenuTreeSourceUpdate();
+                AppControler.UpDateAllSource();
                 this.Close();
             }
         }

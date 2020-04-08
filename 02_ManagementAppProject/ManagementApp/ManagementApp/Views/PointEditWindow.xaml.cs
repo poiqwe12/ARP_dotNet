@@ -83,7 +83,7 @@ namespace ManagementApp.Views
                     };
 
                     DataBase.ChangePointProperties(point_Id, newPoint);
-                    AppControler.MenuTreeSourceUpdate();
+                    AppControler.UpDateAllSource();
                     this.Close();
                 }
             }

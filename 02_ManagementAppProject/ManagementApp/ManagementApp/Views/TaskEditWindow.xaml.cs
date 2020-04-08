@@ -83,7 +83,7 @@ namespace ManagementApp.Views
                     };
 
                     DataBase.ChangeTaskProperties(task_Id, newTask);
-                    AppControler.MenuTreeSourceUpdate();
+                    AppControler.UpDateAllSource();
                     this.Close();
                 }
 

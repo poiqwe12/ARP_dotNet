@@ -80,6 +80,7 @@ namespace ManagementApp.Views
                     AppControler.ActualChosenTypeInMenu = AppControler.NullType;
                     AppControler.ActualChosenIdInMenu = -1;
                 }
+                AppControler.UpDateListSource();
             }
         }
         //*********************************************/

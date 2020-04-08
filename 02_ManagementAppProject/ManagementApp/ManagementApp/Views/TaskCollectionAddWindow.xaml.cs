@@ -45,7 +45,7 @@ namespace ManagementApp.Views
                 };
 
                 DataBase.AddCollection(newTaskCollection);
-                AppControler.MenuTreeSourceUpdate();
+                AppControler.UpDateAllSource();
                 this.Close();
             }
         }

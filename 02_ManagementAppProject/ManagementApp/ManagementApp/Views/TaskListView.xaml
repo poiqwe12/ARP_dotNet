@@ -16,21 +16,21 @@
         
         <!--Szablon dla komurki nazwa: -->
         <DataTemplate x:Key="NameTemplate" DataType="{x:Type GridViewColumn}">
-            <TextBlock Text="{Binding TaskName}" 
+            <TextBlock Text="{Binding Name}" 
                        Width="200"/>
         </DataTemplate>
         <!--Szablon dla komurki postęp: -->
         <DataTemplate x:Key="ProgresTemplate" DataType="{x:Type GridViewColumn}">
-            <ProgressBar Value="{Binding Percenttarget}"
+            <ProgressBar Value="{Binding PercentageCompletion}"
                          Width="100" Height="10"/>
         </DataTemplate>
         <!--Szablon dla komurki deadline: -->
         <DataTemplate x:Key="DeadlineDateTemplate" DataType="{x:Type GridViewColumn}">
-            <Label Content="{Binding DeadLine}"/>
+            <Label Content="{Binding DeadLineDate}"/>
         </DataTemplate>
         <!--Szablon dla komurki zakończenie: -->
         <DataTemplate x:Key="CompletionDateTemplate" DataType="{x:Type GridViewColumn}">
-            <Label Content="{Binding Completion}"/>
+            <Label Content="{Binding CompletionDate}"/>
         </DataTemplate>
 
         <Style x:Key="ListStyle" TargetType="ListViewItem">
@@ -49,17 +49,21 @@
             <ListView.View>
                 <!-- Definicja kolumn i nagłówków -->
                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
-                    <GridViewColumn CellTemplate="{StaticResource NameTemplate}">
+                    <GridViewColumn CellTemplate="{StaticResource NameTemplate}"
+                                    Width="200">
                         <GridViewColumnHeader Content="Nazwa"/>
                     </GridViewColumn>
-                    <GridViewColumn CellTemplate="{StaticResource ProgresTemplate}">
+                    <GridViewColumn CellTemplate="{StaticResource ProgresTemplate}"
+                                    Width="120">
                         <GridViewColumnHeader Content="Postęp"/>
                     </GridViewColumn>
-                    <GridViewColumn CellTemplate="{StaticResource DeadlineDateTemplate}">
+                    <GridViewColumn CellTemplate="{StaticResource DeadlineDateTemplate}"
+                                    Width="70">
                         <GridViewColumnHeader Content="Deadline"/>
                     </GridViewColumn>
                     <GridViewColumn CellTemplate="{StaticResource CompletionDateTemplate}" >
-                        <GridViewColumnHeader Content="Zakończenie"/>
+                        <GridViewColumnHeader Content="Zakończenie"
+                                              Width="70"/>
                     </GridViewColumn>
                 </GridView>
             </ListView.View>

@@ -56,12 +56,25 @@ namespace ManagementApp.Controler
 			PointListSource = new ObservableCollection<Model.Point>();
 			DayliToDopointListSource = new ObservableCollection<Point>();
 
-			MenuTreeSourceUpdate(); //Inicjalizacja menu
+			UpDateAllSource();
+		}
+
+		//Aktualizacja zasobów dla widoku:
+		public static void UpDateAllSource() //W przypadku Add, Edit itp.
+		{
+			MenuTreeSourceUpdate();
+			TaskListSourceUpdate();
+			PointListSourceUpdate();
+		}
+
+		public static void UpDateListSource() //W przypadku zmiany elementu
+		{
+			TaskListSourceUpdate();
+			PointListSourceUpdate();
 		}
 
 
 
-		//Aktualizacja zasobów dla widoku:
 		public static void MenuTreeSourceUpdate()
 		{
 			MenuTreeSource.Clear();
@@ -85,13 +98,38 @@ namespace ManagementApp.Controler
 			}
 		}
 
+
 		public static void TaskListSourceUpdate()
 		{
-
+			if(ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+			{
+				TaskListSource.Clear();
+				foreach (var item in DataBase.GetTasksList(ActualChosenIdInMenu))
+				{
+					TaskListSource.Add(item);
+				} 
+			}
 		}
 		public static void PointListSourceUpdate()
 		{
+			if (ActualChosenTypeInMenu == AppControler.TaskType)
+			{
+				PointListSource.Clear();
+				foreach (var item in DataBase.GetPointsList(ActualChosenIdInMenu))
+				{
+					PointListSource.Add(item);
+				}
+			}
+			else if (ActualChosenTypeInMenu == AppControler.PointType)
+			{
+				Model.Point temporaryPoint = DataBase.GetPoint(ActualChosenIdInMenu);
 
+				PointListSource.Clear();
+				foreach (var item in DataBase.GetPointsList(temporaryPoint.TaskId))
+				{
+					PointListSource.Add(item);
+				}
+			}
 		}
 
 		// TODO: Poprawić dayliToDopointListSourceUpdate funkcje tak by dawała listę właściwych punktów:

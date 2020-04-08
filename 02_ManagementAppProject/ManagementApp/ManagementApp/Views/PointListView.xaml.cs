@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using ManagementApp.Controler;
+using ManagementApp.Model;
+
 namespace ManagementApp.Views
 {
     /// <summary>
@@ -24,9 +27,7 @@ namespace ManagementApp.Views
         {
             InitializeComponent();
 
-           
-
-            //ListView_PointsList.ItemsSource = points;
+            ListView_PointsList.ItemsSource = AppControler.PointListSource;
 
         }
     }

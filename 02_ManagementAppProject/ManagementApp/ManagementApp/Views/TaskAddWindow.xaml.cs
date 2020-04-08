@@ -74,7 +74,7 @@ namespace ManagementApp.Views
                     };
 
                     DataBase.AddTask(newTask);
-                    AppControler.MenuTreeSourceUpdate();
+                    AppControler.UpDateAllSource();
                     this.Close();
                 }
 

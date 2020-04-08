@@ -21,8 +21,8 @@
             <!--Spliter:-->
             <GridSplitter ShowsPreview="true" Grid.Column="1" Width="2" HorizontalAlignment="Stretch" Background="Black"/>
             <!--Główny ekran-->
-            <Frame x:Name="PoinListToRender" Grid.Column="2" Source="TaskListView.xaml" ></Frame>
-            <Frame x:Name="TaskListToRender" Grid.Column="2" Source="PointListView.xaml" Visibility="Hidden"></Frame>
+            <Frame x:Name="PoinListToRender" Grid.Column="2" Source="PointListView.xaml" ></Frame>
+            <Frame x:Name="TaskListToRender" Grid.Column="2" Source="TaskListView.xaml" Visibility="Hidden"></Frame>
             <!--Spliter:-->
             <GridSplitter ShowsPreview="true" Grid.Column="3" Width="2" HorizontalAlignment="Stretch" Background="Black"/>
             <!--Do zrobienia dzisiaj:-->

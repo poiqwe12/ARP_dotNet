@@ -31,22 +31,32 @@ namespace ManagementApp.Views
             //DispatcherTimer start
             DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler(DispatcherTimer_ListUpdate);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Interval = new TimeSpan(0,0,0,0,100);
             dispatcherTimer.Start();
         }
 
         //Cykliczne przerwanie odświeżające okno z listami:
         private void DispatcherTimer_ListUpdate(object sender, EventArgs e)
         {
-            TaskListToRender.Visibility = Visibility.Hidden;
-            PoinListToRender.Visibility = Visibility.Hidden;
             if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
             {
-                TaskListToRender.Visibility = Visibility.Visible;
+                TaskListToRender.Visibility = Visibility.Visible;  
+                PoinListToRender.Visibility = Visibility.Hidden;
             }
             else if(AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
             {
+                TaskListToRender.Visibility = Visibility.Hidden;
                 PoinListToRender.Visibility = Visibility.Visible;
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.PointType)
+            {
+                PoinListToRender.Visibility = Visibility.Visible;
+                TaskListToRender.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                TaskListToRender.Visibility = Visibility.Hidden;
+                PoinListToRender.Visibility = Visibility.Hidden;
             }
         }
 

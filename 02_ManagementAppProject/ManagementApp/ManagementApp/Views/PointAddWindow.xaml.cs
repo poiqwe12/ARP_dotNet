@@ -74,7 +74,7 @@ namespace ManagementApp.Views
                     };
 
                     DataBase.AddPoint(newPoint);
-                    AppControler.MenuTreeSourceUpdate();
+                    AppControler.UpDateAllSource();
                     this.Close();
                 }
             }
