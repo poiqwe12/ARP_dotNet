@@ -17,7 +17,9 @@
         <!--Szablon dla komurki postęp: -->
         <DataTemplate x:Key="ProgresTemplate" DataType="{x:Type GridViewColumn}">
             <CheckBox IsChecked="{Binding ExecutionStatus}"
-                         Width="20" Height="20"/>
+                      Checked="CheckBox_Checked"
+                      Unchecked="CheckBox_Unchecked"
+                      Width="20" Height="20"/>
         </DataTemplate>
         <!--Szablon dla komurki nazwa: -->
         <DataTemplate x:Key="NameTemplate" DataType="{x:Type GridViewColumn}">
@@ -31,6 +33,11 @@
         <DataTemplate x:Key="CompletionDateTemplate" DataType="{x:Type GridViewColumn}">
             <Label Content="{Binding CompletionDate}"/>
         </DataTemplate>
+        <!--Szablon dla komurki DayliTODO: -->
+        <DataTemplate x:Key="DayliToDoTemplate" DataType="{x:Type GridViewColumn}">
+            <TextBlock Text="{Binding IsTaskForToday}"/>
+        </DataTemplate>
+
 
         <Style x:Key="ListStyle" TargetType="ListViewItem">
             <Setter Property="BorderBrush" Value="White"></Setter>
@@ -43,14 +50,23 @@
     </Page.Resources>
 
     <Grid>
-        <ListView x:Name="ListView_PointsList" ItemContainerStyle="{StaticResource ListStyle}"  Background="#f2f2f2">
+        <DockPanel>
 
-            <ListView.View>
+            <ListView x:Name="ListView_PointsList" ItemContainerStyle="{StaticResource ListStyle}"
+                      DockPanel.Dock="Top"
+                      Background="#f2f2f2">
+                <ListView.ContextMenu>
+                    <ContextMenu Opened="ContextMenu_Opened">
+                        <MenuItem Name="AddToDayliToDo" Header="---"  
+                                  Click="AddToDayliToDo_Click"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
                 <!-- Definicja kolumn i nagłówków -->
                 <GridView ColumnHeaderContainerStyle="{StaticResource HeaderStyle}">
-                    <GridViewColumn CellTemplate="{StaticResource ProgresTemplate}"
+                        <GridViewColumn CellTemplate="{StaticResource ProgresTemplate}"
                                     Width="auto">
-                        <GridViewColumnHeader Content="Wykonanne"/>
+                            <GridViewColumnHeader Content="Wykonanne"/>
                     </GridViewColumn>
                     <GridViewColumn CellTemplate="{StaticResource NameTemplate}"
                                     Width="200">
@@ -64,9 +80,17 @@
                                     Width="70">
                         <GridViewColumnHeader Content="Zakończenie"/>
                     </GridViewColumn>
-                </GridView>
+                        <GridViewColumn CellTemplate="{StaticResource DayliToDoTemplate}"
+                                    Width="auto">
+                            <GridViewColumnHeader Content="TO DO"/>
+                        </GridViewColumn>
+                    </GridView>
             </ListView.View>
         </ListView>
+
+            <TextBlock x:Name="Description"></TextBlock>
+            
+        </DockPanel>
     </Grid>
 </Page>
 

@@ -28,7 +28,50 @@ namespace ManagementApp.Views
             InitializeComponent();
 
             ListView_PointsList.ItemsSource = AppControler.PointListSource;
+        }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in AppControler.PointListSource)
+            {
+                DataBase.ChangePointProperties(item.Id, item);
+            }
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in AppControler.PointListSource)
+            {
+                DataBase.ChangePointProperties(item.Id, item);
+            }
+        }
+
+        private void AddToDayliToDo_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Point point = (Model.Point)ListView_PointsList.SelectedItem;
+            if (point != null)
+            {
+                point.IsTaskForToday = !point.IsTaskForToday;
+
+                DataBase.ChangePointProperties(point.Id, point);
+                AppControler.UpDateListSource();
+            }
+        }
+
+        private void ContextMenu_Opened(object sender, RoutedEventArgs e)
+        {
+            Model.Point point = (Model.Point)ListView_PointsList.SelectedItem;
+            if (point != null)
+            {
+                if (point.IsTaskForToday == false)
+                {
+                    AddToDayliToDo.Header = "Dodaj zadanie do dzisiejszego TO DO";
+                }
+                if (point.IsTaskForToday == true)
+                {
+                    AddToDayliToDo.Header = "Usuń zadanie z dzisiejszego TO DO";
+                }
+            }
         }
     }
 }
