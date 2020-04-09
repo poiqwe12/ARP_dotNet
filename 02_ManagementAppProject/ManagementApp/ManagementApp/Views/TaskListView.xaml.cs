@@ -40,6 +40,12 @@ namespace ManagementApp.Views
         private void DispatcherTimer_ListUpdate(object sender, EventArgs e)
         {
             Description.Content = AppControler.ActualDescriptionSource;
+
+            if (AppControler.ActualChosenTypeInMenu == AppControler.TaskCollectionType)
+            {
+                Model.TaskCollection taskCollection = DataBase.GetTaskCollection(AppControler.ActualChosenIdInMenu);
+                TaskCollectionName.Content = taskCollection.Name;
+            }
         }
 
 

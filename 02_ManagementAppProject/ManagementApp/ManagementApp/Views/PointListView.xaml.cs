@@ -41,6 +41,18 @@ namespace ManagementApp.Views
         private void DispatcherTimer_ListUpdate(object sender, EventArgs e)
         {
             Description.Content = AppControler.ActualDescriptionSource;
+
+            if (AppControler.ActualChosenTypeInMenu == AppControler.TaskType)
+            {
+                Model.Task task = DataBase.GetTask(AppControler.ActualChosenIdInMenu);
+                TaskName.Content = task.Name;
+            }
+            else if (AppControler.ActualChosenTypeInMenu == AppControler.PointType)
+            {
+                Model.Point point = DataBase.GetPoint(AppControler.ActualChosenIdInMenu);
+                Model.Task task = DataBase.GetTask(point.TaskId);
+                TaskName.Content = task.Name;
+            }
         }
 
 

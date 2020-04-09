@@ -53,7 +53,8 @@
         <DockPanel>
             
             <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
-            <Label DockPanel.Dock="Top"
+            <Label Name="TaskName"
+                   DockPanel.Dock="Top"
                    VerticalAlignment="Top"
                    HorizontalAlignment="Stretch"
                    FontWeight="Bold"
