@@ -74,6 +74,12 @@
                           Background="Transparent"
                           BorderThickness="0"
                           Margin="2">
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Name="DeletePointFromToDoList" Header="Usuń punkt z listy"  
+                                      Click="DeletePointFromToDoList_Click"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <WrapPanel Width="200">

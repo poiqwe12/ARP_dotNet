@@ -33,7 +33,7 @@ namespace ManagementApp.Views
             NameTextBox.Text = editTask.Name;
             DayTextBox.Text = editTask.DeadLineDate.Value.Day.ToString();
             MonthTextBox.Text = editTask.DeadLineDate.Value.Month.ToString();
-            YearTextBox.Text = editTask.DeadLineDate.Value.Year.ToString();
+            YearTextBox.Text = (editTask.DeadLineDate.Value.Year -2000).ToString();
             DescriptionTextBox.Text = editTask.Description;
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)

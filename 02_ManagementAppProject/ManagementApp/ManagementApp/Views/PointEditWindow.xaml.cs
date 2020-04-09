@@ -32,7 +32,7 @@ namespace ManagementApp.Views
 
             NameTextBox.Text = editPoint.Name;
             DayTextBox.Text = editPoint.DeadLineDate.Value.Day.ToString();
-            MonthTextBox.Text = editPoint.DeadLineDate.Value.Month.ToString();
+            MonthTextBox.Text = (editPoint.DeadLineDate.Value.Year - 2000).ToString();
             YearTextBox.Text = editPoint.DeadLineDate.Value.Year.ToString();
 
         }
@@ -79,7 +79,8 @@ namespace ManagementApp.Views
                         TaskId = editPoint.TaskId,
                         Name = NameTextBox.Text,
                         DeadLineDate = newDate,
-                        ExecutionStatus = false
+                        ExecutionStatus = editPoint.ExecutionStatus,
+                        IsTaskForToday = editPoint.IsTaskForToday
                     };
 
                     DataBase.ChangePointProperties(point_Id, newPoint);

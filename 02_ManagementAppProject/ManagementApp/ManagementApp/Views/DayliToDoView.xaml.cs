@@ -51,6 +51,18 @@ namespace ManagementApp.Views
             AppControler.UpDateListSource();
         }
 
+        private void DeletePointFromToDoList_Click(object sender, RoutedEventArgs e)
+        {
+            Model.Point point = (Model.Point)DayliToDoList.SelectedItem;
+            if (point != null)
+            {
+                point.IsTaskForToday = !point.IsTaskForToday;
+
+                DataBase.ChangePointProperties(point.Id, point);
+                AppControler.UpDateListSource();
+            }
+        }
+
         // TODO: Dodać ContextMenu do DayliToDO 
 
     }
