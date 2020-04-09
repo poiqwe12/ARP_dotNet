@@ -33,6 +33,24 @@ namespace ManagementApp.Views
 
         }
 
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in AppControler.DayliToDopointListSource)
+            {
+                DataBase.ChangePointProperties(item.Id, item);
+            }
+            AppControler.UpDateListSource();
+        }
+
+        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in AppControler.DayliToDopointListSource)
+            {
+                DataBase.ChangePointProperties(item.Id, item);
+            }
+            AppControler.UpDateListSource();
+        }
+
         // TODO: Dodać ContextMenu do DayliToDO 
 
     }

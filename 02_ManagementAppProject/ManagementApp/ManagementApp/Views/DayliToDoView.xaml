@@ -33,9 +33,11 @@
 
     <Grid>
         <DockPanel Background="#404040" >
-            <!--Pasek z narzędziami-->
+            
+            
+            <!--Pasek z narzędziami
             <StackPanel  DockPanel.Dock="Top" Orientation="Horizontal" >
-                <!--Wykożystywany jedynie do testów!!!!!-->
+                Wykożystywany jedynie do testów!!!!!
                 <Button x:Name="Button"
                         Width="20" Height="20"
                         Margin="2"
@@ -44,6 +46,8 @@
                 </Button>
             </StackPanel>
             <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black"></Rectangle>
+            -->
+
 
             <!--Pole z drzewkiem zadań-->
             <ScrollViewer HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" 
@@ -73,7 +77,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <WrapPanel Width="200">
-                                <CheckBox IsChecked="{Binding ExecutionStatus}" />
+                                <CheckBox IsChecked="{Binding ExecutionStatus}"
+                                          Checked="CheckBox_Checked"
+                                          Unchecked="CheckBox_Unchecked"/>
                                 <TextBlock Text="{Binding Name}"
                                            Foreground="White"
                                            Margin="5,0,0,0"/>

@@ -50,6 +50,7 @@ namespace ManagementApp.Views
             {
                 DataBase.ChangePointProperties(item.Id, item);
             }
+            AppControler.UpDateListSource();
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
@@ -58,6 +59,7 @@ namespace ManagementApp.Views
             {
                 DataBase.ChangePointProperties(item.Id, item);
             }
+            AppControler.UpDateListSource();
         }
 
         private void AddToDayliToDo_Click(object sender, RoutedEventArgs e)

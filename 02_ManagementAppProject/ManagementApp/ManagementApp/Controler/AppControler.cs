@@ -58,26 +58,24 @@ namespace ManagementApp.Controler
 			PointListSource = new ObservableCollection<Model.Point>();
 			DayliToDopointListSource = new ObservableCollection<Point>();
 			ActualDescriptionSource = "Opis:";
-
 			UpDateAllSource();
 		}
+
 
 		//Aktualizacja zasobów dla widoku:
 		public static void UpDateAllSource() //W przypadku Add, Edit itp.
 		{
 			MenuTreeSourceUpdate();
-			TaskListSourceUpdate();
-			PointListSourceUpdate();
+			UpDateListSource();
 		}
-
 		public static void UpDateListSource() //W przypadku zmiany elementu
 		{
-			TaskListSourceUpdate();
+			ActualPercentageCompletionUpdate(); //Narpiew wyliczyć! 
+			TaskListSourceUpdate(); //Potem zaktualizować! 
 			PointListSourceUpdate();
 			ActualDescriptionSourceUpdate();
+			DayliToDopointListSourceUpdate();
 		}
-
-
 
 		public static void MenuTreeSourceUpdate()
 		{
@@ -101,7 +99,6 @@ namespace ManagementApp.Controler
 				MenuTreeSource.Add(newCollectionItem);
 			}
 		}
-
 		public static void TaskListSourceUpdate()
 		{
 			if(ActualChosenTypeInMenu == AppControler.TaskCollectionType)
@@ -134,7 +131,6 @@ namespace ManagementApp.Controler
 				}
 			}
 		}
-
 		public static void ActualDescriptionSourceUpdate()
 		{
 			if (ActualChosenTypeInMenu == AppControler.TaskCollectionType)
@@ -154,13 +150,44 @@ namespace ManagementApp.Controler
 				ActualDescriptionSource = task.Description;
 			}
 		}
-
-		// TODO: Poprawić dayliToDopointListSourceUpdate funkcje tak by dawała listę właściwych punktów:
-
 		public static void DayliToDopointListSourceUpdate()
 		{
-
+			DayliToDopointListSource.Clear();
+			foreach (var item in DataBase.GetAllPointsList())
+			{
+				if (item.IsTaskForToday == true)
+				{
+					DayliToDopointListSource.Add(item);
+				}
+			}
 		}
+		public static void ActualPercentageCompletionUpdate()
+		{
+			foreach (var task in DataBase.GetAllTasksList())
+			{
+				int donePoints = 0;
+				int allPoints = 0;
+				foreach (var point in DataBase.GetPointsList(task.Id))
+				{
+					if(point.ExecutionStatus == true)
+					{
+						donePoints++;
+					}
+					allPoints++;
+				}
+				if (allPoints != 0)
+				{
+					task.PercentageCompletion = (donePoints*100)/allPoints;
+				}
+				else
+				{
+					task.PercentageCompletion = 100;
+				}
+				DataBase.ChangeTaskProperties(task.Id, task);
+			}
+		}
+
+
 		/********************************/
 
 		// TODO: Napisać testy jednostkowe do wszystkich funkcji komunikujących się z bazą danych!

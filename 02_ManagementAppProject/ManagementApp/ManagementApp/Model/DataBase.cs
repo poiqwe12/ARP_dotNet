@@ -180,6 +180,23 @@ namespace ManagementApp.Model
 				return List;
 			}
 		}
+
+		public static List<Task> GetAllTasksList()
+		{
+			using (var context = new DBContext())
+			{
+				List<Task> List = context.Tasks.ToList<Task>();
+				return List;
+			}
+		}
+		public static List<Point> GetAllPointsList()
+		{
+			using (var context = new DBContext())
+			{
+				List<Point> List = context.Points.ToList<Point>();
+				return List;
+			}
+		}
 		/*******************************************/
 
 
