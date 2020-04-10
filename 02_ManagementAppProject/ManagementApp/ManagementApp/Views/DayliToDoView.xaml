@@ -80,9 +80,9 @@
                                       Click="DeletePointFromToDoList_Click"/>
                         </ContextMenu>
                     </ListView.ContextMenu>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <WrapPanel Width="200">
+                    <ListView.ItemTemplate >
+                        <DataTemplate >
+                            <WrapPanel Width="auto">
                                 <CheckBox IsChecked="{Binding ExecutionStatus}"
                                           Checked="CheckBox_Checked"
                                           Unchecked="CheckBox_Unchecked"/>

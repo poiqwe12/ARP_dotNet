@@ -32,8 +32,8 @@ namespace ManagementApp.Views
 
             NameTextBox.Text = editPoint.Name;
             DayTextBox.Text = editPoint.DeadLineDate.Value.Day.ToString();
-            MonthTextBox.Text = (editPoint.DeadLineDate.Value.Year - 2000).ToString();
-            YearTextBox.Text = editPoint.DeadLineDate.Value.Year.ToString();
+            MonthTextBox.Text = editPoint.DeadLineDate.Value.Month.ToString();
+            YearTextBox.Text = (editPoint.DeadLineDate.Value.Year - 2000).ToString();
 
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)

@@ -42,7 +42,7 @@ namespace ManagementApp.Views
             {
                 InformationText.Text = "Proszę uzupełnij nazwę zbioru.";
             }
-            else if (DayTextBox.Text == "" || DayTextBox.Text == "" || YearTextBox.Text == "") //Jeśli którekolwiek pole puste
+            else if (DayTextBox.Text == "" || MonthTextBox.Text == "" || YearTextBox.Text == "") //Jeśli którekolwiek pole puste
             {
                 InformationText.Text = "Proszę uzupełnij  datę.";
             }

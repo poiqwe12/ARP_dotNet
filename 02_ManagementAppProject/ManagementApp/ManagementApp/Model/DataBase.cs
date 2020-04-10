@@ -82,7 +82,7 @@ namespace ManagementApp.Model
 			{
 				var findedTaskCollection = context.TaskCollections.Where(s => s.Id == collection_ID).FirstOrDefault<TaskCollection>();
 				findedTaskCollection.Name = newCollection.Name;
-				findedTaskCollection.Description = findedTaskCollection.Description;
+				findedTaskCollection.Description = newCollection.Description;
 				context.SaveChanges();
 			}
 		}

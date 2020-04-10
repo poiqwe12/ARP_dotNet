@@ -83,12 +83,13 @@
             </ListView.View>
         </ListView>
 
-            <Label DockPanel.Dock="Bottom"
+            <TextBlock DockPanel.Dock="Bottom"
                        x:Name="Description"
                        VerticalAlignment="Bottom"
-                       Height="100">
+                       Height="100"
+                       TextWrapping="Wrap">
                 Opis:
-            </Label>
+            </TextBlock>
             <Rectangle DockPanel.Dock="Bottom"  Height="1" Fill="Black" VerticalAlignment="Bottom"></Rectangle>
             <Label DockPanel.Dock="Bottom"
                    VerticalAlignment="Bottom"

@@ -27,6 +27,12 @@ namespace ManagementApp.Views
         {
             InitializeComponent();
             this.task_Id = task_Id;
+            Model.Task task = DataBase.GetTask(task_Id);
+
+            //Dziedziczenie deadlineu po zadaniu:
+            DayTextBox.Text = task.DeadLineDate.Value.Day.ToString();
+            MonthTextBox.Text = task.DeadLineDate.Value.Month.ToString();
+            YearTextBox.Text = (task.DeadLineDate.Value.Year - 2000).ToString();
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +48,7 @@ namespace ManagementApp.Views
             {
                 InformationText.Text = "Proszę uzupełnij nazwę zbioru.";
             }
-            else if (DayTextBox.Text == "" || DayTextBox.Text == "" || YearTextBox.Text == "") //Jeśli którekolwiek pole puste
+            else if (DayTextBox.Text == "" || MonthTextBox.Text == "" || YearTextBox.Text == "") //Jeśli którekolwiek pole puste
             {
                 InformationText.Text = "Proszę uzupełnij  datę.";
             }
