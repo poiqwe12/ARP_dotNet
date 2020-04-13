@@ -9,6 +9,10 @@
       Title="CalendarView">
 
     <Grid Background="White">
+        <StackPanel x:Name="siatka">
+            
+        </StackPanel>
+        
         <TextBlock FontSize="100"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center">

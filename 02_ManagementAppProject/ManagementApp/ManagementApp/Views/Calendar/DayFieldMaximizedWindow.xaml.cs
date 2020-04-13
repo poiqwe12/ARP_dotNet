@@ -10,19 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 
-namespace ManagementApp.Views
+namespace ManagementApp.Views.Calendar
 {
     /// <summary>
-    /// Logika interakcji dla klasy CalendarView.xaml
+    /// Logika interakcji dla klasy DayFieldMaximized.xaml
     /// </summary>
-    public partial class CalendarView : Page
+    public partial class DayFieldMaximizedWindow : Window
     {
-        public CalendarView()
+        public DayFieldMaximizedWindow(DateTime dateForNewDay, ObservableCollection<Model.Point> pointListSourse)
         {
             InitializeComponent();
+            NumberOfDay.Text = dateForNewDay.ToShortDateString();
+            PointList.ItemsSource = pointListSourse;
+            //RoutinList
         }
     }
 }

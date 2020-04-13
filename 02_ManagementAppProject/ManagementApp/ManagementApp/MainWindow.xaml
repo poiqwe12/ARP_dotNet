@@ -91,7 +91,7 @@
                     Height="20" Width="auto"
                     BorderThickness="1">
         </StatusBar>
-        <!--Pole środkowe dotyczące wybranej funkcjonalności podzielone na 3 obszary:-->
+        <!--Pole środkowe dotyczące wybranej funkcjonalności:-->
         <Frame x:Name="MiddleFieldView"
                 NavigationUIVisibility="Hidden">
         </Frame>

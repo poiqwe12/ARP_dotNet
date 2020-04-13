@@ -97,8 +97,14 @@
     <Compile Include="Model\Point.cs" />
     <Compile Include="Model\Task.cs" />
     <Compile Include="Model\TaskCollection.cs" />
-    <Compile Include="Views\CalendarView.xaml.cs">
+    <Compile Include="Views\Calendar\CalendarView.xaml.cs">
       <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calendar\DayFieldMaximizedWindow.xaml.cs">
+      <DependentUpon>DayFieldMaximizedWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Calendar\DayFieldUserControl.xaml.cs">
+      <DependentUpon>DayFieldUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DayliToDoView.xaml.cs">
       <DependentUpon>DayliToDoView.xaml</DependentUpon>
@@ -151,7 +157,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\CalendarView.xaml">
+    <Page Include="Views\Calendar\CalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calendar\DayFieldMaximizedWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Calendar\DayFieldUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

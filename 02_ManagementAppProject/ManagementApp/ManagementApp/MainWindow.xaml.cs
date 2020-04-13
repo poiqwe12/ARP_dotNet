@@ -41,7 +41,7 @@ namespace ManagementApp
 
         private void CalendarViewButton_Click(object sender, RoutedEventArgs e)
         {
-            MiddleFieldView.Source = new Uri("Views/CalendarView.xaml", UriKind.Relative);
+            MiddleFieldView.Source = new Uri("Views/Calendar/CalendarView.xaml", UriKind.Relative);
         }
 
         private void StatisticsViewButton_Click(object sender, RoutedEventArgs e)
