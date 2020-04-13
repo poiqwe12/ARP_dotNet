@@ -289,5 +289,9 @@
   <ItemGroup>
     <Resource Include="Image\SmalSignature\minus.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\SmalSignature\leftArrow.png" />
+    <Resource Include="Image\SmalSignature\rightArrow.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -12,8 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
 using ManagementApp.Views.Calendar;
 using ManagementApp.Controler;
+
 
 namespace ManagementApp.Views
 {
@@ -25,22 +27,8 @@ namespace ManagementApp.Views
         private const int quantityOfColumns = 7;
         private const int quantityOfRow = 6;
 
-        private int actualMonth;
-        private int ActualMonth
-        {
-            get { return actualMonth; }
-            set
-            {
-                if (value > 0 && value <= 12)
-                {
-                    actualMonth = value;
-                }
-                else
-                {
-                    throw new ArgumentOutOfRangeException("Corect value is 1 to 12.");
-                }
-            }
-        }
+        private DateTime ActualDateTime { get; set; }
+
 
         private int QuantityOfDaysForActualMonth { get; set; }
         private DayOfWeek FirstDayOfTheMonth {get; set;}
@@ -51,29 +39,28 @@ namespace ManagementApp.Views
         {
             InitializeComponent();
             CreateCalendarGrid(DateTime.Now);
-
+            SetMonthName(DateTime.Now);
 
         }
 
         private void CreateCalendarGrid(DateTime dateTime)
         {
-            DateTime actualDateTime = dateTime;
-            ActualMonth = actualDateTime.Month;
-            DateTime firstDayOfTheMonthDateTime = new DateTime(actualDateTime.Year, actualDateTime.Month, 1);
+            ActualDateTime = dateTime;
+            DateTime firstDayOfTheMonthDateTime = new DateTime(ActualDateTime.Year, ActualDateTime.Month, 1);
             FirstDayOfTheMonth = firstDayOfTheMonthDateTime.DayOfWeek;
-            QuantityOfDaysForActualMonth = DateTime.DaysInMonth(actualDateTime.Year, ActualMonth);
+            QuantityOfDaysForActualMonth = DateTime.DaysInMonth(ActualDateTime.Year, ActualDateTime.Month);
 
 
             int f = (int)FirstDayOfTheMonth - 1;
             int days = QuantityOfDaysForActualMonth;
-            for (int r = 0; r < quantityOfRow; r++)
+            for (int r = 1; r <= quantityOfRow; r++)
             {
 
                 for (int c = 0; c < quantityOfColumns; c++)
                 {
                     if (days != 0 && f <= c)
-                    {
-                        DayFieldUserControl dayField = new DayFieldUserControl(firstDayOfTheMonthDateTime, AppControler.DayliToDopointListSource);
+                    {  
+                        DayFieldUserControl dayField = new DayFieldUserControl(firstDayOfTheMonthDateTime, GetPointsForDate(firstDayOfTheMonthDateTime));
                         Grid.SetColumn(dayField, c);
                         Grid.SetRow(dayField, r);
                         CalendarGrid.Children.Add(dayField);
@@ -92,6 +79,60 @@ namespace ManagementApp.Views
                 f = 0;
             }
         }
+        private void SetMonthName(DateTime dateTime)
+        {
+            MonthName.Text = dateTime.ToString("MMMM  yyyy");
+        }
+ 
+        private ObservableCollection<Model.Point> GetPointsForDate(DateTime dateTime)
+        {
+            ObservableCollection<Model.Point> pointsForDate = new ObservableCollection<Model.Point>();
 
+            foreach (var item in AppControler.CalendarPointListSource)
+            {
+                if (item.DeadLineDate.Value.Day == dateTime.Day &&
+                   item.DeadLineDate.Value.Month == dateTime.Month &&
+                   item.DeadLineDate.Value.Year == dateTime.Year)
+                {
+                    pointsForDate.Add(item);
+                }
+            }
+
+            return pointsForDate;
+        }
+
+
+
+        private void RightButton_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime newdateTime;
+            if (ActualDateTime.Month < 12)
+            {
+                newdateTime = new DateTime(ActualDateTime.Year, ActualDateTime.Month + 1, ActualDateTime.Day);
+            }
+            else
+            {
+                newdateTime = new DateTime(ActualDateTime.Year +1, 1, ActualDateTime.Day);
+            }
+                    
+            CreateCalendarGrid(newdateTime);
+            SetMonthName(newdateTime);
+        }
+
+        private void LeftButton_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime newdateTime;
+            if (ActualDateTime.Month > 1)
+            {
+                newdateTime = new DateTime(ActualDateTime.Year, ActualDateTime.Month - 1, ActualDateTime.Day);
+            }
+            else
+            {
+                newdateTime = new DateTime(ActualDateTime.Year - 1, 12, ActualDateTime.Day);
+            }
+
+            CreateCalendarGrid(newdateTime);
+            SetMonthName(newdateTime);
+        }
     }
 }

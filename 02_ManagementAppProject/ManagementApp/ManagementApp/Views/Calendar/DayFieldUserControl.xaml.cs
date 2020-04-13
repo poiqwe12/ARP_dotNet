@@ -40,18 +40,19 @@ namespace ManagementApp.Views.Calendar
                    
             IsActive = true;
 
-            if (dataForNewDay.Day < DateTime.Now.Day && dataForNewDay.Month <= DateTime.Now.Month && dataForNewDay.Year <= DateTime.Now.Year)
+            if ((dataForNewDay.Day < DateTime.Now.Day && dataForNewDay.Month == DateTime.Now.Month && dataForNewDay.Year == DateTime.Now.Year) || //Ten sam miesiąc
+                (dataForNewDay.Month < DateTime.Now.Month && dataForNewDay.Year <= DateTime.Now.Year)) //Poprzednie miesiące 
             {
-                DayField.Background = new SolidColorBrush(Colors.Gray);
+                DayField.Background = new SolidColorBrush(Color.FromRgb(179, 179, 179));
             }
             else
             {
                 if (dataForNewDay.Day == DateTime.Now.Day && dataForNewDay.Month == DateTime.Now.Month && dataForNewDay.Year == DateTime.Now.Year)
                 {
-                    Thickness thickness = new Thickness(3);
+                    Thickness thickness = new Thickness(4);
                     DayField.BorderThickness = thickness;
                 }
-                DayField.Background = new SolidColorBrush(Colors.Silver);
+                DayField.Background = new SolidColorBrush(Color.FromRgb(242, 242, 242));
             }
         }
         public DayFieldUserControl()
@@ -62,7 +63,7 @@ namespace ManagementApp.Views.Calendar
             PointListHeader.Visibility = Visibility.Hidden;
             RoutinListHeader.Visibility = Visibility.Hidden;
 
-            DayField.Background = new SolidColorBrush(Colors.Gray);
+            DayField.Background = new SolidColorBrush(Color.FromRgb(128, 128, 128));
             IsActive = false;
         }
 

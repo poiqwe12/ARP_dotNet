@@ -8,7 +8,40 @@
       d:DesignHeight="450" d:DesignWidth="900"
       Title="CalendarView">
 
-    <Grid Background="White">
+    <DockPanel Background="#444444">
+
+        <!--Pasek nawigacyjny: -->
+        <DockPanel DockPanel.Dock="Top"
+                   Background="#444444">
+            <TextBlock x:Name="MonthName"
+                       DockPanel.Dock="Left"
+                       Foreground="White" Margin="10,2,2,2"
+                       FontSize="20" FontWeight="ExtraBold">
+                MARZEC
+            </TextBlock>
+            <Button x:Name="RightButton"
+                    DockPanel.Dock="Right"
+                    Background="Transparent" Foreground="Red"
+                    Margin="2,2,10,2"
+                    BorderBrush="Transparent" BorderThickness="0"
+                    Click="RightButton_Click">
+                <Image Source="/Image/SmalSignature/rightArrow.png" 
+                       Width="30" Height="30"/>
+            </Button>
+            <Button x:Name="LeftButton"
+                    DockPanel.Dock="Right"
+                    Background="Transparent"
+                    Margin="2,2,10,2"
+                    BorderBrush="Transparent" BorderThickness="0"
+                    Click="LeftButton_Click">
+                <Image Source="/Image/SmalSignature/leftArrow.png" 
+                       Width="30" Height="30"/>
+            </Button>
+            <Canvas></Canvas>
+
+        </DockPanel>
+        
+
         <!--Szachownica kalendarza: -->
         <Grid x:Name="CalendarGrid" Margin="0">
             <Grid.ColumnDefinitions>
@@ -21,6 +54,7 @@
                 <ColumnDefinition Width="1*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
                 <RowDefinition Height="1*"></RowDefinition>
@@ -29,6 +63,51 @@
                 <RowDefinition Height="1*"></RowDefinition>
             </Grid.RowDefinitions>
             
+            <!--Pasek z dniami tygodnia: -->
+            <TextBlock Grid.Column="0" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Poniedziałek 
+            </TextBlock>
+            <TextBlock Grid.Column="1" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Wtorek
+            </TextBlock>
+            <TextBlock Grid.Column="2" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Środa
+            </TextBlock>
+            <TextBlock Grid.Column="3" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Czwartek
+            </TextBlock>
+            <TextBlock Grid.Column="4" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Piątek
+            </TextBlock>
+            <TextBlock Grid.Column="5" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Sobota
+            </TextBlock>
+            <TextBlock Grid.Column="6" Grid.Row="0"
+                       Foreground="White" Background="#444444"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="12" FontWeight="Bold"> 
+                Niedziela
+            </TextBlock>
+
+
         </Grid>
-    </Grid>
+    </DockPanel>
 </Page>

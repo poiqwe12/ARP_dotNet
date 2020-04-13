@@ -49,6 +49,7 @@ namespace ManagementApp.Controler
 		static public ObservableCollection<Model.Task> TaskListSource { get; set; }
 		static public ObservableCollection<Model.Point> PointListSource { get; set; }
 		static public ObservableCollection<Model.Point> DayliToDopointListSource { get; set; }
+		static public ObservableCollection<Model.Point> CalendarPointListSource { get; set; }
 
 		//Konstruktor statyczny:
 		static AppControler()
@@ -57,6 +58,7 @@ namespace ManagementApp.Controler
 			TaskListSource = new ObservableCollection<Model.Task>();
 			PointListSource = new ObservableCollection<Model.Point>();
 			DayliToDopointListSource = new ObservableCollection<Point>();
+			CalendarPointListSource = new ObservableCollection<Model.Point>();
 			ActualDescriptionSource = "Opis:";
 			UpDateAllSource();
 		}
@@ -75,6 +77,7 @@ namespace ManagementApp.Controler
 			PointListSourceUpdate();
 			ActualDescriptionSourceUpdate();
 			DayliToDopointListSourceUpdate();
+			CalendarPointListSourceUpdate();
 		}
 
 		public static void MenuTreeSourceUpdate()
@@ -160,6 +163,14 @@ namespace ManagementApp.Controler
 					DayliToDopointListSource.Add(item);
 				}
 			}
+		}
+		public static void CalendarPointListSourceUpdate()
+		{	
+				CalendarPointListSource.Clear();
+				foreach (var item in DataBase.GetAllPointsList())
+				{
+					CalendarPointListSource.Add(item);
+				}
 		}
 		public static void ActualPercentageCompletionUpdate()
 		{
