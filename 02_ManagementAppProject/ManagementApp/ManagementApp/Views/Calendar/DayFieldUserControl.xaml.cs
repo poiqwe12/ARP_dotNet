@@ -59,6 +59,8 @@ namespace ManagementApp.Views.Calendar
             InitializeComponent();
 
             NumberOfDay.Text = "";
+            PointListHeader.Visibility = Visibility.Hidden;
+            RoutinListHeader.Visibility = Visibility.Hidden;
 
             DayField.Background = new SolidColorBrush(Colors.Gray);
             IsActive = false;
