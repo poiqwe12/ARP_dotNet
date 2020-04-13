@@ -23,24 +23,54 @@ namespace ManagementApp.Views.Calendar
     /// </summary>
     public partial class DayFieldUserControl : UserControl
     {
-        private DateTime date { get; }
+        private  DateTime date { get; }
         private ObservableCollection<Model.Point> PointListSourse { get; }
+        private bool IsActive { get; }
+        private bool IsDayPassed { get; }
+
 
         public DayFieldUserControl(DateTime dataForNewDay, ObservableCollection<Model.Point> pointListSourse)
         {
             InitializeComponent();
-
             date = dataForNewDay;
             NumberOfDay.Text = date.Day.ToString();
             PointListSourse = pointListSourse;
             PointList.ItemsSource = PointListSourse;
             //RoutinList
+                   
+            IsActive = true;
+
+            if (dataForNewDay.Day < DateTime.Now.Day && dataForNewDay.Month <= DateTime.Now.Month && dataForNewDay.Year <= DateTime.Now.Year)
+            {
+                DayField.Background = new SolidColorBrush(Colors.Gray);
+            }
+            else
+            {
+                if (dataForNewDay.Day == DateTime.Now.Day && dataForNewDay.Month == DateTime.Now.Month && dataForNewDay.Year == DateTime.Now.Year)
+                {
+                    Thickness thickness = new Thickness(3);
+                    DayField.BorderThickness = thickness;
+                }
+                DayField.Background = new SolidColorBrush(Colors.Silver);
+            }
+        }
+        public DayFieldUserControl()
+        {
+            InitializeComponent();
+
+            NumberOfDay.Text = "";
+
+            DayField.Background = new SolidColorBrush(Colors.Gray);
+            IsActive = false;
         }
 
         private void DayField_Click(object sender, RoutedEventArgs e)
         {
-            DayFieldMaximizedWindow dayFieldMaximizedWindow = new DayFieldMaximizedWindow(date, PointListSourse);
-            dayFieldMaximizedWindow.Show();
+            if (IsActive)
+            {
+                DayFieldMaximizedWindow dayFieldMaximizedWindow = new DayFieldMaximizedWindow(date, PointListSourse);
+                dayFieldMaximizedWindow.Show();
+            }
         }
     }
 }

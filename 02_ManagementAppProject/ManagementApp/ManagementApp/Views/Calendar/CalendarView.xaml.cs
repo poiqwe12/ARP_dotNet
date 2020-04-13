@@ -22,15 +22,22 @@ namespace ManagementApp.Views
     /// </summary>
     public partial class CalendarView : Page
     {
+        private const int quantityOfColumns = 7;
+        private const int quantityOfRow = 6;
         public CalendarView()
         {
             InitializeComponent();
+          
 
-
-            for (int i = 0; i < 6; i++)
+            for (int r = 0; r < quantityOfRow; r++)
             {
-                DayFieldUserControl attempt = new DayFieldUserControl(DateTime.Now, AppControler.DayliToDopointListSource);
-                siatka.Children.Add(attempt);
+                for (int c = 0; c < quantityOfColumns; c++)
+                {
+                    DayFieldUserControl dayField = new DayFieldUserControl(DateTime.Now, AppControler.DayliToDopointListSource);
+                    Grid.SetColumn(dayField, c);
+                    Grid.SetRow(dayField, r);
+                    CalendarGrid.Children.Add(dayField);  
+                }
             }
         }
     }

@@ -9,14 +9,26 @@
       Title="CalendarView">
 
     <Grid Background="White">
-        <StackPanel x:Name="siatka">
+        <!--Szachownica kalendarza: -->
+        <Grid x:Name="CalendarGrid" Margin="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" ></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+                <RowDefinition Height="1*"></RowDefinition>
+            </Grid.RowDefinitions>
             
-        </StackPanel>
-        
-        <TextBlock FontSize="100"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
-            Kalendarz!!!
-        </TextBlock>
+        </Grid>
     </Grid>
 </Page>
