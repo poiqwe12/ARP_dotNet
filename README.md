@@ -32,7 +32,7 @@ funkcjonalności jak:
 #### - Rutyny
 - Status: Etap koncepckji
 #### - Kalendarz
-- Status: Etap koncepckji
+- Status: Wstępnie zrealizowane
 #### - Statystyki
 - Status: W planach
 #### - Opcje

@@ -28,16 +28,15 @@ namespace ManagementApp.Views
         private const int quantityOfRow = 6;
 
         private DateTime ActualDateTime { get; set; }
-
-
         private int QuantityOfDaysForActualMonth { get; set; }
         private DayOfWeek FirstDayOfTheMonth {get; set;}
-
-
+        private DayFieldUserControl[,] dayFields { get; set; }
 
         public CalendarView()
         {
             InitializeComponent();
+
+            dayFields = new DayFieldUserControl[6, 7];
             CreateCalendarGrid(DateTime.Now);
             SetMonthName(DateTime.Now);
 
@@ -51,6 +50,15 @@ namespace ManagementApp.Views
             QuantityOfDaysForActualMonth = DateTime.DaysInMonth(ActualDateTime.Year, ActualDateTime.Month);
 
 
+            //Wyczyszczenie poprzedniej siatki:
+            for (int r = 0; r < quantityOfRow; r++)
+            {
+                for (int c = 0; c < quantityOfColumns; c++)
+                {
+                    dayFields[r, c] = null;
+                }
+            }
+
             int f = (int)FirstDayOfTheMonth - 1;
             int days = QuantityOfDaysForActualMonth;
             for (int r = 1; r <= quantityOfRow; r++)
@@ -60,19 +68,19 @@ namespace ManagementApp.Views
                 {
                     if (days != 0 && f <= c)
                     {  
-                        DayFieldUserControl dayField = new DayFieldUserControl(firstDayOfTheMonthDateTime, GetPointsForDate(firstDayOfTheMonthDateTime));
-                        Grid.SetColumn(dayField, c);
-                        Grid.SetRow(dayField, r);
-                        CalendarGrid.Children.Add(dayField);
+                        dayFields[r-1,c] = new DayFieldUserControl(firstDayOfTheMonthDateTime, GetPointsForDate(firstDayOfTheMonthDateTime));
+                        Grid.SetColumn(dayFields[r-1,c], c);
+                        Grid.SetRow(dayFields[r - 1, c], r);
+                        CalendarGrid.Children.Add(dayFields[r - 1, c]);
                         firstDayOfTheMonthDateTime = firstDayOfTheMonthDateTime.AddDays(1);
                         days--;
                     }
                     else
                     {
-                        DayFieldUserControl dayField = new DayFieldUserControl();
-                        Grid.SetColumn(dayField, c);
-                        Grid.SetRow(dayField, r);
-                        CalendarGrid.Children.Add(dayField);
+                        dayFields[r - 1, c] = new DayFieldUserControl();
+                        Grid.SetColumn(dayFields[r - 1, c], c);
+                        Grid.SetRow(dayFields[r - 1, c], r);
+                        CalendarGrid.Children.Add(dayFields[r - 1, c]);
                     }
 
                 }
@@ -101,8 +109,6 @@ namespace ManagementApp.Views
             return pointsForDate;
         }
 
-
-
         private void RightButton_Click(object sender, RoutedEventArgs e)
         {
             DateTime newdateTime;
@@ -118,7 +124,6 @@ namespace ManagementApp.Views
             CreateCalendarGrid(newdateTime);
             SetMonthName(newdateTime);
         }
-
         private void LeftButton_Click(object sender, RoutedEventArgs e)
         {
             DateTime newdateTime;
