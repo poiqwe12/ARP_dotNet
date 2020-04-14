@@ -124,6 +124,18 @@
     <Compile Include="Views\PointListView.xaml.cs">
       <DependentUpon>PointListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Routines\DayliRoutinesToDoView.xaml.cs">
+      <DependentUpon>DayliRoutinesToDoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Routines\RoutinesContentView.xaml.cs">
+      <DependentUpon>RoutinesContentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Routines\RoutinesMenuView.xaml.cs">
+      <DependentUpon>RoutinesMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Routines\RoutinesView.xaml.cs">
+      <DependentUpon>RoutinesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StatisticsView.xaml.cs">
       <DependentUpon>StatisticsView.xaml</DependentUpon>
     </Compile>
@@ -190,6 +202,22 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PointListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Routines\DayliRoutinesToDoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Routines\RoutinesContentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Routines\RoutinesMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Routines\RoutinesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

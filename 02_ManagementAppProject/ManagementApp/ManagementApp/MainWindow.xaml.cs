@@ -38,17 +38,18 @@ namespace ManagementApp
         {
             MiddleFieldView.Source = new Uri("Views/ManagementView.xaml", UriKind.Relative);
         }
-
+        private void RoutinesViewButton_Click(object sender, RoutedEventArgs e)
+        {
+            MiddleFieldView.Source = new Uri("Views/Routines/RoutinesView.xaml", UriKind.Relative);
+        }
         private void CalendarViewButton_Click(object sender, RoutedEventArgs e)
         {
             MiddleFieldView.Source = new Uri("Views/Calendar/CalendarView.xaml", UriKind.Relative);
         }
-
         private void StatisticsViewButton_Click(object sender, RoutedEventArgs e)
         {
             MiddleFieldView.Source = new Uri("Views/StatisticsView.xaml", UriKind.Relative);
         }
-
         private void OptionViewButton_Click(object sender, RoutedEventArgs e)
         {
             MiddleFieldView.Source = new Uri("Views/OptionView.xaml", UriKind.Relative);

@@ -48,13 +48,6 @@
             <Rectangle DockPanel.Dock="Top"  Height="1" Fill="Black"></Rectangle>
             -->
 
-
-            <!--Pole z drzewkiem zadań-->
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" DockPanel.Dock="Top" 
-                          VerticalScrollBarVisibility="Auto"      
-                          Background="#404040">
-
-            </ScrollViewer>
             <StackPanel Background="#505050" DockPanel.Dock="Top">
                 <TextBlock  x:Name="Haeder"
                             Text="TO DO  ( 20.04.20 )"
