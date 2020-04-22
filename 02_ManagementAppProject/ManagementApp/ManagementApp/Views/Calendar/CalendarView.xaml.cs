@@ -139,5 +139,17 @@ namespace ManagementApp.Views
             CreateCalendarGrid(newdateTime);
             SetMonthName(newdateTime);
         }
+
+        private void GoogleShereButton_Click(object sender, RoutedEventArgs e)
+        {
+            GoogleCalendarAPI.AuthorizeAccount();
+            GoogleCalendarAPI.DeleteEvent();
+            foreach (var item in AppControler.CalendarPointListSource)
+            {
+                DateTime startDateTime = new DateTime(item.DeadLineDate.Value.Year, item.DeadLineDate.Value.Month, item.DeadLineDate.Value.Day, 14, 00, 00);
+                DateTime endDateTime = new DateTime(item.DeadLineDate.Value.Year, item.DeadLineDate.Value.Month, item.DeadLineDate.Value.Day, 16, 00, 00);
+                GoogleCalendarAPI.AddEvent(item.Name, startDateTime, endDateTime);
+            }
+        }
     }
 }

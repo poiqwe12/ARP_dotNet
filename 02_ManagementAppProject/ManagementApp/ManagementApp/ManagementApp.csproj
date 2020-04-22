@@ -343,5 +343,8 @@
     <Resource Include="Image\SmalSignature\leftArrow.png" />
     <Resource Include="Image\SmalSignature\rightArrow.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\googleShere.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
