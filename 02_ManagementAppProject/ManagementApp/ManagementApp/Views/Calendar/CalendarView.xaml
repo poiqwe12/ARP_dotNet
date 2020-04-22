@@ -37,6 +37,15 @@
                 <Image Source="/Image/SmalSignature/leftArrow.png" 
                        Width="30" Height="30"/>
             </Button>
+            <Button x:Name="GoogleShereButton"
+                    DockPanel.Dock="Right"
+                    Background="Transparent"
+                    Margin="2,2,10,2"
+                    BorderBrush="Transparent" BorderThickness="0"
+                    Click="GoogleShereButton_Click">
+                <Image Source="/Image/googleShere.png" 
+                           Width="auto" Height="30"/>
+            </Button>
             <Canvas></Canvas>
 
         </DockPanel>
