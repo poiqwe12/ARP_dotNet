@@ -142,8 +142,25 @@ namespace ManagementApp.Views
 
         private void GoogleShereButton_Click(object sender, RoutedEventArgs e)
         {
-            GoogleCalendarAPI.AuthorizeAccount();
-            GoogleCalendarAPI.DeleteEvent();
+            try
+            {
+                GoogleCalendarAPI.AuthorizeAccount();
+            }
+            catch(Exception)
+            {
+                DiagnosticDictionary.WriteMessage("Nie udane połączenie z kontem Google!");
+                return;
+            }
+            try
+            {
+                GoogleCalendarAPI.DeleteEvent();
+            }
+            catch (Exception)
+            {
+                DiagnosticDictionary.WriteMessage("Brak dostępu do wydarzeń w kolendarzu Google!");
+                return;
+            }
+            
             foreach (var item in AppControler.CalendarPointListSource)
             {
                 DateTime startDateTime = new DateTime(item.DeadLineDate.Value.Year, item.DeadLineDate.Value.Month, item.DeadLineDate.Value.Day, 14, 00, 00);

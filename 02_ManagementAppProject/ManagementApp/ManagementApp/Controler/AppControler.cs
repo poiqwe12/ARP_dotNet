@@ -12,8 +12,6 @@ using ManagementApp.Model;
 
 namespace ManagementApp.Controler
 {
-
-	// TODO: Zmienić drzewko menu na takie na bazie jednolitej struktury:
 	public class MenuItem
 	{
 		public string Name { get; set; }
@@ -197,12 +195,10 @@ namespace ManagementApp.Controler
 				DataBase.ChangeTaskProperties(task.Id, task);
 			}
 		}
-
-
 		/********************************/
 
 		// TODO: Napisać testy jednostkowe do wszystkich funkcji komunikujących się z bazą danych!
-		// TODO: Wdrożyć obsługę wyjątkuw dla wszystkich funkcji komunikujących się z bazą danych!
+
 
 	}
 

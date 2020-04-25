@@ -114,6 +114,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controler\AppControler.cs" />
+    <Compile Include="Controler\DiagnosticDictionary.cs" />
     <Compile Include="Controler\GoogleCalendarAPI.cs" />
     <Compile Include="Model\DataBase.cs" />
     <Compile Include="Model\Point.cs" />

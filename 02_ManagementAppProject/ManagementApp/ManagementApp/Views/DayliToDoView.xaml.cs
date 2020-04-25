@@ -63,7 +63,5 @@ namespace ManagementApp.Views
             }
         }
 
-        // TODO: Dodać ContextMenu do DayliToDO 
-
     }
 }

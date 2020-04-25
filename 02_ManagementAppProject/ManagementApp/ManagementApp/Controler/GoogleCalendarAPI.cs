@@ -71,7 +71,7 @@ namespace ManagementApp.Controler
             request.MaxResults = 1000;
             request.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
 
-            // List wydarzeń
+            // Listz wydarzeń
             Events events = request.Execute();
 
             if (events.Items != null && events.Items.Count > 0)
