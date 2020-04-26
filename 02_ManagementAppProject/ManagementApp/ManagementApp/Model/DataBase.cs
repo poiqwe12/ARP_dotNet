@@ -17,28 +17,31 @@ namespace ManagementApp.Model
 	{
 
 		//Dodawanie do bazy danych:
-		public static void AddCollection(TaskCollection newCollection)
+		public static int AddCollection(TaskCollection newCollection)
 		{
 			using (var context = new DBContext())
 			{
-					context.TaskCollections.Add(newCollection);
+					newCollection = context.TaskCollections.Add(newCollection);
 					context.SaveChanges();
+					return newCollection.Id;
 			}
 		}
-		public static void AddTask(Task newTask)
+		public static int AddTask(Task newTask)
 		{
 			using (var context = new DBContext())
 			{
-				context.Tasks.Add(newTask);
+				newTask = context.Tasks.Add(newTask);
 				context.SaveChanges();
+				return newTask.Id;
 			}
 		}
-		public static void AddPoint(Point newPoints)
+		public static int AddPoint(Point newPoints)
 		{
 			using (var context = new DBContext())
 			{
-				context.Points.Add(newPoints);
+				newPoints = context.Points.Add(newPoints);
 				context.SaveChanges();
+				return newPoints.Id;
 			}
 		}
 		/*************************/

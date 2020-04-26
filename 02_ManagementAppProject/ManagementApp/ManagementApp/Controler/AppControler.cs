@@ -197,7 +197,7 @@ namespace ManagementApp.Controler
 		}
 		/********************************/
 
-		// TODO: Napisać testy jednostkowe do wszystkich funkcji komunikujących się z bazą danych!
+
 
 
 	}
