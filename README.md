@@ -30,6 +30,10 @@ Jest to projekt aplikacji desktopowej służącej do zażądzania czasem. W plan
 
 ### Zarządzanie
 ![](IMG_README/Zarzadzania.png)
+###### Obsługa:
+Dzięki tej funkcjonalności możemy dodawać kolekcje, zadania i punkty, twożąc złożoną struktórę poprawiającą organizacje.
+Z listy punktów możemy wybierać te które chcemy zrealizować danego dnia i w prosty sposób dodać do dziennego TO DO.
+Potwierdzać ich wykonanie możemy już z w obszaże owej listy, tak by nie musieć za każdym razem na nowo oddnajdywać wszystkich punktów.
 ###### Status: Wstępnie zrealizowane
 ###### Plany rozwoju: 
  - [ ] Przenoszenie lub odwlekanie nie zrealizowanych punktów po zakończeniu dnia.
@@ -46,6 +50,10 @@ Jest to projekt aplikacji desktopowej służącej do zażądzania czasem. W plan
  - [ ] Opracowanie i wprowadzenie personalnych opcji dla rutyn.
 #### Kalendarz
 ![](IMG_README/Kalendarz.png)
+###### Obsługa:
+Dzięki kalendarzowi możemy w łatwy sposób zorientować się w ilości zbliżających się deadlinów i odpowiednio na to reagować.
+Ponadto istnieje możliwość wysłania i późniejszej synchronizacji zadań z kalendarzem google.
+Klikając na konkretny dzień możemy podejrzeć więcej informacji o punktach z datą deadlinu przewidzianą na ten dzień. 
 ###### Status: Zrealizowane
 #### Statystyki
 ###### Status: W planach
