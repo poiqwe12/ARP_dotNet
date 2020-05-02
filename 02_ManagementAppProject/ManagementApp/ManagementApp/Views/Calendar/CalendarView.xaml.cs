@@ -146,18 +146,38 @@ namespace ManagementApp.Views
             {
                 GoogleCalendarAPI.AuthorizeAccount();
             }
-            catch(Exception)
+            catch(System.IO.FileNotFoundException)
+            {
+                DiagnosticDictionary.WriteMessage("Nie można znaleźć pliku json!");
+                return;
+            }
+            catch (System.UnauthorizedAccessException)
             {
                 DiagnosticDictionary.WriteMessage("Nie udane połączenie z kontem Google!");
+                return;
+            }
+            catch (System.Net.Http.HttpRequestException)
+            {
+                DiagnosticDictionary.WriteMessage("Brak połączenia z internetem!");
+                return;
+            }
+            catch (Exception AuthorizeAccountException)
+            {
+                DiagnosticDictionary.WriteMessage(AuthorizeAccountException.Message);
                 return;
             }
             try
             {
                 GoogleCalendarAPI.DeleteEvent();
             }
-            catch (Exception)
+            catch (System.Net.Http.HttpRequestException)
             {
-                DiagnosticDictionary.WriteMessage("Brak dostępu do wydarzeń w kolendarzu Google!");
+                DiagnosticDictionary.WriteMessage("Brak połączenia z internetem!");
+                return;
+            }
+            catch(Exception DeleteEventException)
+            {
+                DiagnosticDictionary.WriteMessage(DeleteEventException.Message);
                 return;
             }
             

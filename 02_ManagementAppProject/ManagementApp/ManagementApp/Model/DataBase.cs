@@ -80,7 +80,7 @@ namespace ManagementApp.Model
 
 		//Wprowadzanie zmian do elementów bazy danych:
 		public static void ChangeCollectionProperties(int collection_ID, TaskCollection newCollection) //???
-		{
+		{				
 			using (var context = new DBContext())
 			{
 				var findedTaskCollection = context.TaskCollections.Where(s => s.Id == collection_ID).FirstOrDefault<TaskCollection>();
