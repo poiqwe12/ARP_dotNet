@@ -1,8 +1,6 @@
 package com.company;
 
-import com.game.Keyboard;
-import com.game.Map;
-import com.game.MyFrame;
+import com.game.Game;
 
 import java.awt.*;
 
@@ -13,15 +11,10 @@ public class Main {
         EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new MyFrame();
+                new Game().Start();
             }
         });
 
-        Map map = new Map();
-        map.writeMapToTerminal();
-while (true) {
-    System.out.println(Keyboard.actualKeyboardChar);
-}
     }
 }
 
