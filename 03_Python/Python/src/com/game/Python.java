@@ -3,8 +3,8 @@ package com.game;
 import java.util.ArrayList; // import the ArrayList class
 
 public class Python {
-    ArrayList<Coordinates> body = new ArrayList<Coordinates>(); // Create an ArrayList object
-
+   public ArrayList<Coordinates> body = new ArrayList<Coordinates>();
+   public int actualDirection= 1;
 
     public void AddNewCoordinates(int x, int y){
         Coordinates coordinates = new Coordinates(x,y);
@@ -14,7 +14,7 @@ public class Python {
         body.add(coordinates);
     }
     public void DeleteLastCoordinates(){
-        body.remove(body.size()-1);
+        body.remove(0);
     }
 
 }

@@ -28,14 +28,10 @@ public class Game extends Canvas implements Runnable {
     private long timeLast = System.nanoTime();
     private double delta;
 
-    //Sprites
-    public static final SpriteSheet mainSpriteSheet = new SpriteSheet(
-            "C:\\Users\\ABacz\\Desktop\\ARP_dotNet\\03_Python\\Python\\Source\\textury.png");
-    public static final Sprite stone = new Sprite(0,0,50,mainSpriteSheet);
-
-
-    private Screen screen;
+    //Zażądzanie:
+    private  GameStateManager gameStateManager;
     private Keyboard keyboard = new Keyboard();
+    private Screen screen;
 
     public Game() {
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
@@ -50,6 +46,7 @@ public class Game extends Canvas implements Runnable {
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         screen = new Screen(10*50,10*50);
+        gameStateManager = new GameStateManager();
     }
 
     public void Start(){
@@ -65,9 +62,7 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void Update(){
-        if(Keyboard.keys[KeyEvent.VK_UP]==true){
-            System.out.println("...");
-        }
+        gameStateManager.Update();
     }
 
     private void Render(){
@@ -79,12 +74,8 @@ public class Game extends Canvas implements Runnable {
         Graphics graphics = bufferStrategy.getDrawGraphics();
 
         //Definiowanie tego co ma się wyświetlić:
-       graphics.setColor(Color.BLACK);
-       graphics.fillRect(0,0,WIDTH, HEIGHT);
-
-       screen.RenderSprite(50,50,stone);
-
-       graphics.drawImage(screen.GetImage(),55,50,200,200,null);
+        gameStateManager.Renderer(screen);
+        graphics.drawImage(screen.GetImage(),0,0,WIDTH,HEIGHT,null);
         //Renderowanie klatki:
         graphics.dispose();
         bufferStrategy.show();

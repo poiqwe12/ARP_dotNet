@@ -30,7 +30,7 @@ public class Screen {
     public void  RenderSprite(int x, int y, Sprite sprite){
         for(int i = 0; i < sprite.size ;i++){
             for(int j = 0; j < sprite.size ;j++){
-                DrawPixel(x+i,y+j, sprite.spriteSheet.pixels[(sprite.X*sprite.size)+i + ((sprite.Y*sprite.size) + j * sprite.spriteSheet.WIDTH)]);
+                DrawPixel(x+i,y+j, sprite.spriteSheet.pixels[(sprite.X*sprite.size)+i + ((sprite.Y*sprite.size)*sprite.spriteSheet.WIDTH) + j * sprite.spriteSheet.WIDTH]);
             }
         }
     }
