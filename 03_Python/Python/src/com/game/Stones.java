@@ -1,12 +1,13 @@
 package com.game;
 
-import java.util.ArrayList; // import the ArrayList class
+import java.util.ArrayList;
 
-public class Python {
-   public ArrayList<Coordinates> body = new ArrayList<Coordinates>();
-   public int actualDirection= 1;
-   public int newActualDirection= 1;
+public class Stones {
+    public ArrayList<Coordinates> body = new ArrayList<Coordinates>();
 
+    public Stones(){
+
+    }
     public void AddNewCoordinates(int x, int y){
         Coordinates coordinates = new Coordinates(x,y);
         body.add(coordinates);
@@ -17,5 +18,4 @@ public class Python {
     public void DeleteLastCoordinates(){
         body.remove(0);
     }
-
 }

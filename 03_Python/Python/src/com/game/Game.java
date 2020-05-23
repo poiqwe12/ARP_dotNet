@@ -107,20 +107,6 @@ public class Game extends Canvas implements Runnable {
         Stop();
     }
 
-    // @Override
-   // public void keyTyped(KeyEvent e) {
-
-    //}
-   // @Override
-   // public void keyPressed(KeyEvent e) {
-    //    Keyboard.actualKeyboardChar = e.getKeyChar();
-    //}
-
-   // @Override
-   // public void keyReleased(KeyEvent e) {
-
-    //}
-
 }
 
 
