@@ -7,6 +7,8 @@ import java.util.Random;
 
 public class SinglePlay extends GameState {
 
+
+
     private static final int MAX_X=10;
     private static final int MAX_Y=10;
     private static final int SNAKE_SPEED = 300;
@@ -25,6 +27,15 @@ public class SinglePlay extends GameState {
     private static final Sprite head_snake = new Sprite(0,1,50,mainSpriteSheet);
     private static final Sprite _snake = new Sprite(1,1,50,mainSpriteSheet);
     private static final Sprite papu = new Sprite(0,2,50,mainSpriteSheet);
+
+    private static final Sprite theEnd1 = new Sprite(0,5,50,mainSpriteSheet);
+    private static final Sprite theEnd2= new Sprite(1,5,50,mainSpriteSheet);
+    private static final Sprite theEnd3 = new Sprite(2,5,50,mainSpriteSheet);
+    private static final Sprite theEnd4 = new Sprite(3,5,50,mainSpriteSheet);
+    private static final Sprite theEnd5 = new Sprite(0,6,50,mainSpriteSheet);
+    private static final Sprite theEnd6 = new Sprite(1,6,50,mainSpriteSheet);
+    private static final Sprite theEnd7 = new Sprite(2,6,50,mainSpriteSheet);
+    private static final Sprite theEnd8= new Sprite(3,6,50,mainSpriteSheet);
 
     private Python python = new Python();
     private Stones stones = new Stones();
@@ -45,13 +56,13 @@ public class SinglePlay extends GameState {
     }
     public void Update(){
         UpdateKaybord(); //Odczytanie klawiszy
-        if(System.currentTimeMillis()-nextMoveTime >= SNAKE_SPEED) {
+        if(DetectColision()){
+            while (System.currentTimeMillis() - nextMoveTime <= 3000);
+            GameStateManager.ChangeGameState(GameStateManager.GAME_STATE_MENU);
+        }
+        else if(System.currentTimeMillis()-nextMoveTime >= SNAKE_SPEED) {
             nextMoveTime = System.currentTimeMillis();
             SnakeMove(); //Ruch wenża
-            if(DetectColision()) { //Sprawdzenie kolizji
-                while (System.currentTimeMillis() - nextMoveTime <= 3000);
-                GameStateManager.ChangeGameState(GameStateManager.GAME_STATE_MENU);
-            }
         }
 
     }
@@ -60,6 +71,22 @@ public class SinglePlay extends GameState {
         DrawSnake(singlePlayScreen);
         DrawPapu(singlePlayScreen);
         DrawStones(singlePlayScreen);
+        if(DetectColision()) { //Sprawdzenie kolizji
+            DrawTheEnd(singlePlayScreen);
+        }
+
+    }
+
+    private void DrawTheEnd(Screen singlePlayScreen){
+        singlePlayScreen.RenderSprite(3*50,1*50, theEnd1);
+        singlePlayScreen.RenderSprite(4*50,1*50, theEnd2);
+        singlePlayScreen.RenderSprite(5*50,1*50, theEnd3);
+        singlePlayScreen.RenderSprite(6*50,1*50, theEnd4);
+        singlePlayScreen.RenderSprite(3*50,2*50, theEnd5);
+        singlePlayScreen.RenderSprite(4*50,2*50, theEnd6);
+        singlePlayScreen.RenderSprite(5*50,2*50, theEnd7);
+        singlePlayScreen.RenderSprite(6*50,2*50, theEnd8);
+
     }
 
 
