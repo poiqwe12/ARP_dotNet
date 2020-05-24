@@ -13,6 +13,8 @@ public class SinglePlay extends GameState {
     private static final int MAX_Y=10;
     private static final int SNAKE_SPEED = 300;
     private static final int STONES_QUONTITY = 5;
+    private static final int STONES_QUONTITY2 = 10;
+    private static final int STONES_QUONTITY3 = 15;
 
     //Sprajty:
     private static final Sprite allone_stone = new Sprite(0,0,50,mainSpriteSheet);
@@ -50,7 +52,18 @@ public class SinglePlay extends GameState {
         python.AddNewCoordinates(4,5);
         python.AddNewCoordinates(4,4);
         //Generowanie przeszkód:
-        GenerateRandomStone(STONES_QUONTITY);
+        if(GameStateManager.GetGameLvL()==1)
+            ;//Do nothing
+        if(GameStateManager.GetGameLvL()==2)
+            GenerateDoubleLine();
+        if(GameStateManager.GetGameLvL()==3)
+            GenerateStoneFrame();
+        if(GameStateManager.GetGameLvL()==4)
+            GenerateRandomStone(STONES_QUONTITY);
+        if(GameStateManager.GetGameLvL()==5)
+            GenerateRandomStone(STONES_QUONTITY2);
+        if(GameStateManager.GetGameLvL()==6)
+            GenerateRandomStone(STONES_QUONTITY3);
         //Generowanie papu
         GeneratePapu();
     }
@@ -140,13 +153,35 @@ public class SinglePlay extends GameState {
                     if (temp_X == stones.body.get(j).X && temp_Y == stones.body.get(j).Y)
                         corect = false;
                 }
-                if((temp_X == 4 && temp_Y == 3) || (temp_X == 4 && temp_Y == 2) )
+                if((temp_X == 4 && temp_Y == 4) || (temp_X == 4 && temp_Y == 3)|| (temp_X == 4 && temp_Y == 2) )
                     corect = false;
             }
             stones.AddNewCoordinates(temp_X, temp_Y);
             //System.out.println(temp_X +" - "+ temp_Y);
 
         }
+    }
+
+    private void GenerateStoneFrame(){
+
+        for(int i=0; i<MAX_X; i++){
+            stones.AddNewCoordinates(i, 0);
+            stones.AddNewCoordinates(i, MAX_Y-1);
+        }
+        for(int i=1; i<MAX_Y-1; i++){
+            stones.AddNewCoordinates(0, i);
+            stones.AddNewCoordinates(MAX_X-1, i);
+        }
+
+    }
+    private void GenerateDoubleLine(){
+
+        for(int i=1; i<MAX_Y-1; i++){
+            stones.AddNewCoordinates(2, i);
+            stones.AddNewCoordinates(7, i);
+        }
+
+
     }
 
     private void SnakeMove(){

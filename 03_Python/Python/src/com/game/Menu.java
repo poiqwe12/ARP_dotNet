@@ -31,6 +31,11 @@ public class Menu extends GameState {
             levelsActive[i] = false;
         }
         levelsActive[0] = true;
+        levelsActive[1] = true;
+        levelsActive[2] = true;
+        levelsActive[3] = true;
+        levelsActive[4] = true;
+        levelsActive[5] = true;
     }
     public void Update(){
         if(System.currentTimeMillis()-nextMoveTime >= KEY_FRQ) {
@@ -81,11 +86,11 @@ public class Menu extends GameState {
     }
 
     public void DrawDisactiveIcon(Screen menuScreen){
-        menuScreen.RenderSprite(3 * 50, 1 * 50, lockLvL);
-        menuScreen.RenderSprite(5 * 50, 1 * 50, lockLvL);
-        menuScreen.RenderSprite(7 * 50, 1 * 50, lockLvL);
-        menuScreen.RenderSprite(1 * 50, 3 * 50, lockLvL);
-        menuScreen.RenderSprite(3 * 50, 3 * 50, lockLvL);
+        //menuScreen.RenderSprite(3 * 50, 1 * 50, lockLvL);
+        // menuScreen.RenderSprite(5 * 50, 1 * 50, lockLvL);
+        //menuScreen.RenderSprite(7 * 50, 1 * 50, lockLvL);
+        //menuScreen.RenderSprite(1 * 50, 3 * 50, lockLvL);
+        //menuScreen.RenderSprite(3 * 50, 3 * 50, lockLvL);
         menuScreen.RenderSprite(5 * 50, 3 * 50, lockLvL);
         menuScreen.RenderSprite(7 * 50, 3 * 50, lockLvL);
         menuScreen.RenderSprite(1 * 50, 5 * 50, lockLvL);

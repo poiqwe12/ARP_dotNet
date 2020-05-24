@@ -4,6 +4,9 @@ public class GameStateManager {
     public static final int GAME_STATE_MENU = 0;
     public static final int GAME_STATE_SINGLEPLAY = 1;
 
+
+
+
     private static GameState gameState;
     private static int gameLvL=1;
 
